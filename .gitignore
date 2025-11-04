@@ -1,0 +1,18 @@
+# 1. 杀死“建筑垃圾” (Hugo 生成的成品)
+# 这是最重要的！Vercel 会自己生成，绝不能 push！
+/public/
+
+# 2. 杀死“施工缓存” (Hugo 生成的缓存)
+/resources/
+
+# 3. 杀死 Hugo 的临时锁定文件
+.hugo_build.lock
+
+# 4. 杀死操作系统的“幽灵”
+# 你的 ls -la 输出里有 .DS_Store，说明你是 macOS 用户
+# 这个文件必须被忽略，它会污染所有目录
+.DS_Store
+
+# 5. 杀死日志和临时文件
+*.log
+*.tmp

@@ -1,0 +1,85 @@
+# 1. 基础配置 (你做对了)
+baseURL: "https://hbx-happy.com/"
+title: "HBX的快乐博客"
+copyright: "© HBX的快乐博客"
+
+# 2. 语言设置 (关键)
+# 我们只做中文站，不要搞那么多复杂的 languages 块
+languageCode: "zh-cn"
+defaultContentLanguage: "zh-cn"
+
+# 3. 主题和模块 (你做对了)
+module:
+  imports:
+    - path: github.com/adityatelange/hugo-PaperMod
+
+# 4. 功能开关 (保持简洁)
+enableRobotsTXT: true
+enableEmoji: true
+pygmentsUseClasses: true
+mainsections: ["posts"] # 你的主要内容只在 posts 目录
+
+# 5. 菜单 (只保留你需要的)
+menu:
+  main:
+    - name: 归档
+      url: archives
+      weight: 5
+    - name: 搜索
+      url: search/
+      weight: 10
+    - name: 标签
+      url: tags/
+      weight: 15
+    - name: 关于
+      url: about/ # 稍后你可以创建一个 about.md
+      weight: 20
+
+# 6. 全局参数 (这才是你需要自定义的地方)
+params:
+  env: production # 确保 GA 等功能在部署后开启
+  description: "HBX 的个人思考与数字花园" # 换成你自己的描述
+  author: "HBX" # 换成你的名字
+
+  # 视觉
+  defaultTheme: auto # 自动 (明/暗)
+  ShowReadingTime: true
+  ShowShareButtons: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowToc: true
+
+  # 首页配置 (启用 Profile Mode，这才是你想要的)
+  profileMode:
+    enabled: true
+    title: "HBX的快乐博客"
+    subtitle: "欢迎来到我的数字根据地。思考，记录，沉淀。"
+    imageUrl: "" # 以后换成你的头像 URL, 比如 "images/avatar.jpg"
+    imageWidth: 120
+    imageHeight: 120
+    buttons:
+      - name: 全部文章
+        url: posts
+      - name: 关于我
+        url: about
+
+  # 社交链接 (只放你有的)
+  socialIcons:
+    - name: github
+      url: "https://github.com/bx-h" # 你自己的 GitHub
+    # - name: x
+    #   url: "https://x.com/YourUserName"
+
+# 7. Markdown 渲染器 (允许不安全的 HTML，如果你需要在 .md 里写)
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+# 8. 输出格式 (保持默认，JSON 是为搜索准备的)
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
