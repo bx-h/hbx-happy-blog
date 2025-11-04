@@ -1,9 +1,0 @@
-// vercel.json
-{
-  "build": {
-    "env": {
-      "HUGO_VERSION": "0.135.0" // Replace with your desired Hugo version
-    }
-  },
-  "buildCommand": "hugo --gc --minify"
-}
