@@ -9,9 +9,7 @@ languageCode: "zh-cn"
 defaultContentLanguage: "zh-cn"
 
 # 3. 主题和模块 (你做对了)
-module:
-  imports:
-    - path: github.com/adityatelange/hugo-PaperMod
+theme: ["PaperMod"]
 
 # 4. 功能开关 (保持简洁)
 enableRobotsTXT: true
