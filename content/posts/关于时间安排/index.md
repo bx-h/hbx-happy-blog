@@ -46,3 +46,4 @@ draft: false
 
 ![](Pasted%20image%2020251108193327.png)
 
+![](Pasted%20image%2020251108205002.png)
