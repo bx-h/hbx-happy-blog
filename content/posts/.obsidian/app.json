@@ -1,5 +1,5 @@
 {
-  "attachmentFolderPath": "/static/images",
+  "attachmentFolderPath": "./",
   "alwaysUpdateLinks": true,
   "useMarkdownLinks": true,
   "newLinkFormat": "relative"
