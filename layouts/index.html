@@ -1,74 +1,82 @@
 {{/* * 这是一个“一体式”的首页布局
-  * 它包含了 HTML, CSS (在 <style> 标签中) 和 JS
-  * 它会 100% 覆盖主题的默认设置
+  * V3 版本：
+  * 1. 修复了暗黑模式 (使用 var(--content))
+  * 2. 更换为“极客”等宽字体 (Monospace)
+  * 3. 保持手机响应式
   */}}
 
 {{ define "main" }}
-
 <style>
-  /* * 1. 让主容器 (main.main) 占满整个屏幕
-   * 并使用 flex 布局实现完美的垂直和水平居中
-   */
+  @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+  /* 1. 主容器 (保持不变) */
   main.main {
     display: flex;
     flex-direction: column;
     justify-content: center; /* 垂直居中 */
     align-items: center;   /* 水平居中 */
     text-align: center;
-    
-    /* 关键: 100vh = 100% 的视窗高度 */
-    /* 配合第1步的 "hideHeader: true" 来实现全屏 */
     min-height: 100vh;
   }
 
-  /* 2. 设置打字机主体的 "合适大小" 和样式 */
+  /* 2. 打字机主体 (已更新) */
   #typewriter-container {
-    /* "合适的范围"：4rem 在桌面上很大，但在手机上不会过大 */
     font-size: 4rem; 
-    font-weight: 300; /* 细字体 */
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-    color: #222; /* 深色 */
+
+    /* === 变更 #1：更换为“极客”等宽字体 === */
+    /* 这会依次查找你电脑上安装的字体，最后使用通用 monospace */
+    font-family: 'Fira Code', 'Menlo', 'Monaco', monospace;
+    
+    /* 等宽字体在 300 权重下可能太细，400 (normal) 更清晰 */
+    font-weight: 400; 
+
+    /* === 变更 #2：修复暗黑模式 === */
+    /* * 不再使用 color: #222;
+     * var(--content) 是 PaperMod 的 "正文颜色" 变量
+     * 它会在亮色模式下变为深色，在暗色模式下变为亮色
+     */
+    color: var(--content);
   }
 
-  /* 3. 设置打字机光标，确保它和文字一样大 */
+  /* 3. 打字机光标 (已更新) */
   .typed-cursor {
     font-size: 4rem; 
-    color: #555;
+
+    /* === 变更 #3：修复暗黑模式 (光标) === */
+    /* * 使用 var(--tertiary-content) 
+     * 这通常是一个比正文 "更灰" 一点的颜色
+     * 在暗黑/亮色模式下都会自动适配
+     */
+    color: var(--tertiary-content);
     animation-duration: 0.7s; 
   }
 
-  /* 4. 响应式：在手机等小屏幕上，缩小字体 */
+  /* 4. 响应式：在手机等小屏幕上 (保持不变) */
+  /* 这个样式会同时适配新的字体和颜色 */
   @media (max-width: 768px) {
     #typewriter-container,
     .typed-cursor {
-      font-size: 2.2rem; /* 手机上的"合适大小" */
+      font-size: 2.2rem;
     }
   }
 </style>
 
 
 <main class="main">
-    
     <div id="typewriter-container">
         <span id="typewriter-text"></span>
     </div>
-
 </main>
 
 <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
-
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     var options = {
-      // 在这里修改你想要显示的文字
       strings: ['HBX的快乐博客', '思考, 记录, 沉淀.', 'Welcome to my blog.'],
-      typeSpeed: 100,  // 打字速度 (毫秒)
-      backSpeed: 50,   // 退格速度 (毫秒)
-      backDelay: 2000, // 打完一个词组后停留的时间
-      loop: true       // 是否循环
+      typeSpeed: 100,
+      backSpeed: 50,
+      backDelay: 2000,
+      loop: true
     };
-    
-    // 启动！
     var typed = new Typed('#typewriter-text', options);
   });
 </script>
