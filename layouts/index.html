@@ -1,0 +1,76 @@
+{{/* * 这是一个“一体式”的首页布局
+  * 它包含了 HTML, CSS (在 <style> 标签中) 和 JS
+  * 它会 100% 覆盖主题的默认设置
+  */}}
+
+{{ define "main" }}
+
+<style>
+  /* * 1. 让主容器 (main.main) 占满整个屏幕
+   * 并使用 flex 布局实现完美的垂直和水平居中
+   */
+  main.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 垂直居中 */
+    align-items: center;   /* 水平居中 */
+    text-align: center;
+    
+    /* 关键: 100vh = 100% 的视窗高度 */
+    /* 配合第1步的 "hideHeader: true" 来实现全屏 */
+    min-height: 100vh;
+  }
+
+  /* 2. 设置打字机主体的 "合适大小" 和样式 */
+  #typewriter-container {
+    /* "合适的范围"：4rem 在桌面上很大，但在手机上不会过大 */
+    font-size: 4rem; 
+    font-weight: 300; /* 细字体 */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    color: #222; /* 深色 */
+  }
+
+  /* 3. 设置打字机光标，确保它和文字一样大 */
+  .typed-cursor {
+    font-size: 4rem; 
+    color: #555;
+    animation-duration: 0.7s; 
+  }
+
+  /* 4. 响应式：在手机等小屏幕上，缩小字体 */
+  @media (max-width: 768px) {
+    #typewriter-container,
+    .typed-cursor {
+      font-size: 2.2rem; /* 手机上的"合适大小" */
+    }
+  }
+</style>
+
+
+<main class="main">
+    
+    <div id="typewriter-container">
+        <span id="typewriter-text"></span>
+    </div>
+
+</main>
+
+<script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var options = {
+      // 在这里修改你想要显示的文字
+      strings: ['HBX的快乐博客', '思考, 记录, 沉淀.', 'Welcome to my blog.'],
+      typeSpeed: 100,  // 打字速度 (毫秒)
+      backSpeed: 50,   // 退格速度 (毫秒)
+      backDelay: 2000, // 打完一个词组后停留的时间
+      loop: true       // 是否循环
+    };
+    
+    // 启动！
+    var typed = new Typed('#typewriter-text', options);
+  });
+</script>
+
+{{ end }}

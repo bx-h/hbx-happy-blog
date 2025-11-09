@@ -81,3 +81,6 @@ outputs:
     - HTML
     - RSS
     - JSON
+
+ignoreFiles:
+  - _template.md
