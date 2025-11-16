@@ -20,9 +20,7 @@
 # ---
 # 6. 忽略 Obsidian 配置文件和模板
 # 这些文件是你本地编辑用的，不是博客内容
-content/posts/.obsidian/
-content/posts/Excalidraw/
-content/posts/_template.md
+content/.obsidian/
 
 # 7. (可选) 忽略所有未完成的草稿
 # 如果你的文件名以 _ 开头 (例如 _my-draft.md)，它们不会被 git 跟踪
