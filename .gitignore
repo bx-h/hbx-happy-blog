@@ -21,6 +21,8 @@
 # 6. 忽略 Obsidian 配置文件和模板
 # 这些文件是你本地编辑用的，不是博客内容
 content/.obsidian/
+content/posts/.obsidian/
+content/posts/Excalidraw/
 content/Excalidraw/
 
 # 7. (可选) 忽略所有未完成的草稿
