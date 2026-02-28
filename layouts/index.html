@@ -366,9 +366,9 @@
   <a class="post-card" href="{{ .Permalink }}">
     <div class="post-meta">
       <span class="post-date">{{ .Date.Format "2006.01.02" }}</span>
-      {{ range .Params.tags | first 2 }}
+      {{ with .Params.tags }}{{ range first 2 . }}
       <span class="post-tag">{{ . }}</span>
-      {{ end }}
+      {{ end }}{{ end }}
     </div>
     <h2 class="post-card-title">{{ .Title }}</h2>
     {{ if .Description }}
