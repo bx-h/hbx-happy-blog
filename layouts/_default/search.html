@@ -1,0 +1,108 @@
+{{ define "main" }}
+<style>
+  .hx-search {
+    max-width: 48rem; margin: 0 auto; padding: 8rem 1.5rem 6rem;
+    position: relative; z-index: 10;
+  }
+  .hx-search-box {
+    position: relative; margin-bottom: 3rem;
+  }
+  .hx-search-box svg {
+    position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+    width: 28px; height: 28px; color: var(--hx-text-faint);
+    transition: color 0.3s;
+  }
+  .hx-search-box:focus-within svg { color: var(--hx-text-strong); }
+  #searchInput {
+    width: 100%; background: transparent; border: none; outline: none;
+    font-family: 'Noto Serif SC', serif;
+    font-size: clamp(1.5rem, 4vw, 2.2rem); color: var(--hx-text-strong);
+    padding: 1.5rem 0 1.5rem 3rem;
+    border-bottom: 2px solid var(--hx-border);
+    transition: border-color 0.3s;
+  }
+  #searchInput:focus { border-color: var(--hx-text-strong); }
+  #searchInput::placeholder { color: var(--hx-dot); }
+
+  #searchResults .hx-card { margin-bottom: 1rem; }
+  .hx-search-empty {
+    padding: 5rem 0; text-align: center; color: var(--hx-text-faint);
+    font-family: 'Noto Serif SC', serif; font-size: 1.1rem;
+  }
+  .hx-search-count {
+    margin-bottom: 1.5rem; font-size: 0.9rem; font-weight: 500; color: var(--hx-text-muted);
+  }
+</style>
+
+<div class="hx-search anim-up">
+  <div class="hx-search-box">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/></svg>
+    <input type="text" id="searchInput" placeholder="搜索文章标题或摘要..." autofocus>
+  </div>
+  <div id="searchCount" class="hx-search-count" style="display:none;"></div>
+  <div id="searchResults"></div>
+  <div id="searchEmpty" class="hx-search-empty">输入关键字开始搜索</div>
+</div>
+
+<script>
+(function(){
+  var idx, posts;
+  fetch('{{ "index.json" | absURL }}').then(r=>r.json()).then(function(data){
+    posts = data;
+  });
+
+  var input = document.getElementById('searchInput');
+  var results = document.getElementById('searchResults');
+  var empty = document.getElementById('searchEmpty');
+  var count = document.getElementById('searchCount');
+
+  input.addEventListener('input', function(){
+    var q = this.value.trim().toLowerCase();
+    results.innerHTML = '';
+    if (!q) {
+      empty.style.display = 'block';
+      empty.textContent = '输入关键字开始搜索';
+      count.style.display = 'none';
+      return;
+    }
+    if (!posts) return;
+
+    var matches = posts.filter(function(p){
+      return (p.title && p.title.toLowerCase().includes(q)) ||
+             (p.summary && p.summary.toLowerCase().includes(q)) ||
+             (p.content && p.content.toLowerCase().includes(q));
+    });
+
+    count.style.display = 'block';
+    count.textContent = '找到 ' + matches.length + ' 篇相关文章';
+
+    if (matches.length === 0) {
+      empty.style.display = 'block';
+      empty.textContent = '没有找到相关的文章。';
+      return;
+    }
+    empty.style.display = 'none';
+
+    matches.forEach(function(p){
+      var card = document.createElement('a');
+      card.className = 'hx-card';
+      card.href = p.permalink;
+      var tags = '';
+      if (p.tags && p.tags.length) {
+        tags = '<div class="hx-card-tags">' + p.tags.slice(0,3).map(function(t){ return '<span>'+t+'</span>'; }).join('') + '</div>';
+      }
+      var summary = p.summary || '';
+      if (summary.length > 120) summary = summary.substring(0,120) + '…';
+      card.innerHTML = '<div class="cbg"></div><div class="hx-card-inner">' +
+        '<div class="hx-card-top"><h3>' + p.title + '</h3>' +
+        '<div class="hx-meta"><span>' + (p.date||'') + '</span></div></div>' +
+        '<p class="hx-excerpt">' + summary + '</p>' + tags +
+        '<div class="hx-card-read">阅读全文 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></div>' +
+        '</div>';
+      results.appendChild(card);
+    });
+  });
+})();
+</script>
+
+{{ end }}

@@ -1,0 +1,49 @@
+{{ define "main" }}
+<style>
+  .hx-tags-page {
+    max-width: 48rem; margin: 0 auto; padding: 8rem 1.5rem 6rem;
+    position: relative; z-index: 10;
+  }
+  .hx-tags-page > h1 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    font-weight: 600; color: var(--hx-text-strong);
+    margin: 0 0 3rem;
+  }
+  .hx-tag-cloud {
+    display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 3rem;
+  }
+  .hx-tag-pill {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.6rem 1.2rem; border-radius: 999px;
+    background: var(--hx-bg-card); border: 1px solid var(--hx-border);
+    color: var(--hx-text-muted); text-decoration: none;
+    font-size: 0.9rem; font-weight: 500; transition: all 0.3s;
+  }
+  .hx-tag-pill:hover {
+    border-color: var(--hx-border-hover); background: var(--hx-bg-card-hover);
+  }
+  .hx-tag-pill .tag-hash {
+    opacity: 0.4; width: 14px; height: 14px;
+  }
+  .hx-tag-pill .tag-count {
+    font-size: 0.72rem; padding: 0.1rem 0.45rem; border-radius: 999px;
+    background: var(--hx-tag-bg);
+  }
+</style>
+
+<div class="hx-tags-page anim-up">
+  <h1>探索标签</h1>
+
+  <div class="hx-tag-cloud">
+    {{ range .Data.Terms.Alphabetical }}
+    <a href="{{ .Page.Permalink }}" class="hx-tag-pill">
+      <svg class="tag-hash" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5.25 8.25h15m-16.5 7.5h15m-1.8-13.5l-3.9 19.5m-2.1-19.5l-3.9 19.5"/></svg>
+      <span>{{ .Page.Title }}</span>
+      <span class="tag-count">{{ .Count }}</span>
+    </a>
+    {{ end }}
+  </div>
+</div>
+
+{{ end }}

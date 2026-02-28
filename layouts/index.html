@@ -1,354 +1,38 @@
 {{ define "main" }}
 
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap');
-
-  /* ===== Base overrides ===== */
-  body {
-    background: #FAF9F6 !important;
-    color: #44403c !important;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  }
-  [data-theme="dark"] body { background: #1c1917 !important; color: #d6d3d1 !important; }
-
-  ::selection { background: #fef3c7; color: #1c1917; }
-  [data-theme="dark"] ::selection { background: #78350f; color: #fafaf9; }
-
-  main.main { min-height: auto; padding: 0; max-width: 100%; }
-
-  /* Hide PaperMod default header on homepage */
-  header.header { display: none !important; }
-
-  /* ===== Ambient Glow ===== */
-  .amb { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; filter: blur(120px); }
-  .amb-1 { top: -20%; left: -10%; width: 50%; height: 50%; background: rgba(180,83,9,0.04); }
-  .amb-2 { bottom: -20%; right: -10%; width: 50%; height: 50%; background: rgba(154,52,18,0.04); }
-  [data-theme="dark"] .amb-1 { background: rgba(180,83,9,0.025); }
-  [data-theme="dark"] .amb-2 { background: rgba(154,52,18,0.025); }
-
-  /* ===== Custom Navigation ===== */
-  .hx-nav {
-    position: fixed; top: 0; width: 100%; z-index: 50;
-    transition: all 0.5s;
-    border-bottom: 1px solid transparent;
-    padding: 1.5rem 0;
-  }
-  .hx-nav.scrolled {
-    background: rgba(250,249,246,0.8);
-    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-    border-color: rgba(214,211,209,0.8);
-    padding: 1rem 0;
-  }
-  [data-theme="dark"] .hx-nav.scrolled {
-    background: rgba(28,25,23,0.8);
-    border-color: rgba(87,83,78,0.5);
-  }
-
-  .hx-nav-inner {
-    max-width: 64rem; margin: 0 auto; padding: 0 1.5rem;
-    display: flex; justify-content: space-between; align-items: center;
-  }
-
-  .hx-logo {
-    display: flex; align-items: center; gap: 0.5rem;
-    text-decoration: none; cursor: pointer;
-  }
-  .hx-logo-icon {
-    width: 24px; height: 24px; border-radius: 50%;
-    background: #1c1917; display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
-  }
-  .hx-logo:hover .hx-logo-icon { transform: scale(1.1); }
-  .hx-logo-icon svg { width: 12px; height: 12px; color: #FAF9F6; }
-  .hx-logo-text {
-    font-family: 'Noto Serif SC', serif;
-    font-weight: 500; font-size: 1.1rem; color: #1c1917;
-    letter-spacing: 0.02em;
-  }
-  [data-theme="dark"] .hx-logo-icon { background: #fafaf9; }
-  [data-theme="dark"] .hx-logo-icon svg { color: #1c1917; }
-  [data-theme="dark"] .hx-logo-text { color: #fafaf9; }
-
-  .hx-nav-links {
-    display: none; align-items: center; gap: 2rem;
-    list-style: none; margin: 0; padding: 0;
-  }
-  @media (min-width: 768px) { .hx-nav-links { display: flex; } }
-  .hx-nav-links a {
-    font-size: 0.9rem; font-weight: 500; color: #78716c;
-    text-decoration: none; transition: color 0.3s;
-  }
-  .hx-nav-links a:hover { color: #1c1917; }
-  [data-theme="dark"] .hx-nav-links a:hover { color: #fafaf9; }
-
-  .hx-nav-cta {
-    font-size: 0.85rem; font-weight: 500;
-    padding: 0.5rem 1.2rem; border-radius: 999px;
-    background: #f5f5f4; border: 1px solid rgba(214,211,209,0.8);
-    color: #1c1917; text-decoration: none;
-    transition: all 0.3s; box-shadow: 0 1px 2px rgba(0,0,0,0.04);
-    cursor: pointer;
-  }
-  .hx-nav-cta:hover { background: #e7e5e4; }
-  [data-theme="dark"] .hx-nav-cta {
-    background: #292524; border-color: rgba(87,83,78,0.5); color: #d6d3d1;
-  }
-  [data-theme="dark"] .hx-nav-cta:hover { background: #44403c; }
-
-  /* ===== Hero ===== */
-  .hx-hero {
-    max-width: 64rem; margin: 0 auto; padding: 10rem 1.5rem 0;
-    position: relative; z-index: 10;
-    animation: fadeInUp 0.8s cubic-bezier(0.16,1,0.3,1) forwards;
-  }
-  @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .hx-hero h1 {
-    font-family: 'Noto Serif SC', serif;
-    font-size: clamp(2.5rem, 6vw, 4.2rem);
-    font-weight: 600; letter-spacing: -0.02em; line-height: 1.15;
-    color: #1c1917; margin: 0 0 1.5rem;
-  }
-  .hx-hero h1 .grad {
-    background: linear-gradient(to right, #44403c, #a8a29e);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-  }
-  [data-theme="dark"] .hx-hero h1 { color: #fafaf9; }
-  [data-theme="dark"] .hx-hero h1 .grad {
-    background: linear-gradient(to right, #d6d3d1, #78716c);
-    -webkit-background-clip: text; background-clip: text;
-  }
-
-  .hx-hero-desc {
-    font-size: clamp(1rem, 2vw, 1.15rem); font-weight: 300;
-    color: #78716c; max-width: 38rem; line-height: 1.75; margin: 0 0 2.5rem;
-  }
-  [data-theme="dark"] .hx-hero-desc { color: #a8a29e; }
-
-  .hx-hero-actions { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
-
-  .hx-read-link {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    color: #1c1917; font-weight: 500; font-size: 0.95rem;
-    text-decoration: none; padding-bottom: 0.25rem;
-    border-bottom: 1px solid #d6d3d1; transition: border-color 0.3s;
-  }
-  .hx-read-link:hover { border-color: #1c1917; }
-  .hx-read-link svg { width: 16px; height: 16px; transition: transform 0.2s; }
-  .hx-read-link:hover svg { transform: translate(2px, -2px); }
-  [data-theme="dark"] .hx-read-link { color: #fafaf9; border-color: #57534e; }
-  [data-theme="dark"] .hx-read-link:hover { border-color: #fafaf9; }
-
-  .hx-social { display: flex; align-items: center; gap: 1rem; }
-  .hx-social a { color: #a8a29e; transition: color 0.3s; text-decoration: none; }
-  .hx-social a:hover { color: #1c1917; }
-  .hx-social svg { width: 20px; height: 20px; }
-  [data-theme="dark"] .hx-social a:hover { color: #fafaf9; }
-
-  /* ===== Articles ===== */
-  .hx-articles {
-    max-width: 64rem; margin: 0 auto; padding: 6rem 1.5rem 6rem;
-    position: relative; z-index: 10;
-  }
-  .hx-sec-head {
-    display: flex; align-items: center; gap: 0.75rem; margin-bottom: 2.5rem;
-  }
-  .hx-sec-head svg { width: 20px; height: 20px; color: #1c1917; stroke-width: 1.5; }
-  [data-theme="dark"] .hx-sec-head svg { color: #fafaf9; }
-  .hx-sec-head h2 {
-    font-family: 'Noto Serif SC', serif; font-size: 1.5rem; font-weight: 500;
-    color: #1c1917; margin: 0;
-  }
-  [data-theme="dark"] .hx-sec-head h2 { color: #fafaf9; }
-
-  /* Card */
-  .hx-card {
-    display: block; position: relative;
-    padding: 1.5rem 2rem; margin-bottom: 1rem;
-    border-radius: 1.5rem;
-    background: rgba(255,255,255,0.6); border: 1px solid rgba(214,211,209,0.8);
-    text-decoration: none; color: inherit; overflow: hidden;
-    transition: all 0.5s cubic-bezier(0.16,1,0.3,1);
-  }
-  .hx-card:hover {
-    background: #fff; border-color: #d6d3d1;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.04);
-  }
-  .hx-card .cbg {
-    position: absolute; inset: 0;
-    background: linear-gradient(to bottom right, #fafaf9, transparent);
-    opacity: 0; transition: opacity 0.5s; pointer-events: none;
-  }
-  .hx-card:hover .cbg { opacity: 1; }
-  [data-theme="dark"] .hx-card {
-    background: rgba(41,37,36,0.6); border-color: rgba(87,83,78,0.5);
-  }
-  [data-theme="dark"] .hx-card:hover {
-    background: #292524; border-color: #57534e;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
-  }
-  [data-theme="dark"] .hx-card .cbg {
-    background: linear-gradient(to bottom right, #292524, transparent);
-  }
-
-  .hx-card-inner { position: relative; z-index: 1; }
-
-  .hx-card-top {
-    display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 0.6rem;
-  }
-  @media (min-width: 768px) {
-    .hx-card-top { flex-direction: row; align-items: center; justify-content: space-between; }
-  }
-
-  .hx-card h3 {
-    font-family: 'Noto Serif SC', serif; font-size: 1.15rem; font-weight: 500;
-    color: #1c1917; margin: 0; transition: color 0.3s; line-height: 1.4;
-  }
-  .hx-card:hover h3 { color: #78350f; }
-  [data-theme="dark"] .hx-card h3 { color: #fafaf9; }
-  [data-theme="dark"] .hx-card:hover h3 { color: #fbbf24; }
-
-  .hx-meta {
-    display: flex; align-items: center; gap: 0.6rem;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.72rem; color: #a8a29e;
-    letter-spacing: 0.05em; white-space: nowrap; flex-shrink: 0;
-  }
-  .hx-meta .dot { width: 4px; height: 4px; border-radius: 50%; background: #d6d3d1; }
-
-  .hx-excerpt {
-    font-size: 0.9rem; color: #78716c; line-height: 1.6;
-    display: -webkit-box; -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical; overflow: hidden;
-    margin: 0;
-  }
-  [data-theme="dark"] .hx-excerpt { color: #a8a29e; }
-
-  .hx-card-read {
-    display: flex; align-items: center; gap: 0.4rem;
-    margin-top: 0.8rem; font-size: 0.85rem; font-weight: 500; color: #44403c;
-    opacity: 0; transform: translateX(-8px); transition: all 0.3s;
-  }
-  .hx-card-read svg { width: 16px; height: 16px; }
-  .hx-card:hover .hx-card-read { opacity: 1; transform: translateX(0); }
-  [data-theme="dark"] .hx-card-read { color: #d6d3d1; }
-
-  /* View all */
-  .hx-viewall { margin-top: 2.5rem; }
-  .hx-viewall a {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    font-size: 0.85rem; font-weight: 500; color: #78716c;
-    text-decoration: none; transition: color 0.3s;
-  }
-  .hx-viewall a:hover { color: #1c1917; }
-  .hx-viewall svg { width: 16px; height: 16px; }
-  [data-theme="dark"] .hx-viewall a:hover { color: #fafaf9; }
-
-  /* Pagination */
-  .hx-pag { display: flex; justify-content: center; gap: 1rem; margin-top: 3rem; }
-  .hx-pag a {
-    font-size: 0.85rem; font-weight: 500; color: #78716c; text-decoration: none;
-    padding: 0.5rem 1.2rem; border-radius: 999px;
-    background: rgba(255,255,255,0.6); border: 1px solid rgba(214,211,209,0.8);
-    transition: all 0.3s;
-  }
-  .hx-pag a:hover { color: #1c1917; border-color: #a8a29e; box-shadow: 0 4px 12px rgba(0,0,0,0.04); }
-  [data-theme="dark"] .hx-pag a { background: rgba(41,37,36,0.6); border-color: rgba(87,83,78,0.5); color: #a8a29e; }
-  [data-theme="dark"] .hx-pag a:hover { color: #fafaf9; }
-
-  /* ===== Footer ===== */
-  .hx-ft {
-    border-top: 1px solid rgba(214,211,209,0.8); background: #F4F2EC;
-    position: relative; z-index: 10; margin-top: 3rem;
-  }
-  [data-theme="dark"] .hx-ft { background: #1a1816; border-color: rgba(87,83,78,0.5); }
-  .hx-ft-inner {
-    max-width: 64rem; margin: 0 auto; padding: 3rem 1.5rem;
-    display: flex; flex-direction: column; align-items: center; gap: 1.5rem;
-  }
-  @media (min-width: 768px) {
-    .hx-ft-inner { flex-direction: row; justify-content: space-between; }
-  }
-  .hx-ft-brand { display: flex; align-items: center; gap: 0.5rem; }
-  .hx-ft-dot {
-    width: 20px; height: 20px; border-radius: 50%; background: #1c1917;
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-  }
-  .hx-ft-dot svg { width: 10px; height: 10px; color: #FAF9F6; }
-  .hx-ft-brand span { font-family: 'Noto Serif SC', serif; font-weight: 500; color: #1c1917; }
-  [data-theme="dark"] .hx-ft-dot { background: #fafaf9; }
-  [data-theme="dark"] .hx-ft-dot svg { color: #1c1917; }
-  [data-theme="dark"] .hx-ft-brand span { color: #fafaf9; }
-  .hx-ft-copy { font-size: 0.8rem; color: #a8a29e; }
-
-  /* Mobile */
-  @media (max-width: 640px) {
-    .hx-hero { padding-top: 7rem; }
-    .hx-articles { padding-top: 4rem; }
-    .hx-card { padding: 1.25rem; border-radius: 1rem; }
-  }
-</style>
-
-<!-- Ambient -->
-<div class="amb amb-1"></div>
-<div class="amb amb-2"></div>
-
-<!-- Navigation (custom, replaces PaperMod header) -->
-<nav class="hx-nav" id="hxNav">
-  <div class="hx-nav-inner">
-    <a href="{{ "" | absLangURL }}" class="hx-logo">
-      <div class="hx-logo-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z"/></svg>
-      </div>
-      <span class="hx-logo-text">HBX.</span>
-    </a>
-    <ul class="hx-nav-links">
-      <li><a href="{{ "posts" | absURL }}">文章</a></li>
-      <li><a href="{{ "search" | absURL }}">搜索</a></li>
-      <li><a href="{{ "tags" | absURL }}">标签</a></li>
-      <li><a href="{{ "about" | absURL }}">关于</a></li>
-    </ul>
-    <a href="mailto:hbxagi@gmail.com" class="hx-nav-cta">联系我</a>
-  </div>
-</nav>
-
-<!-- Hero -->
-<section class="hx-hero">
-  <h1>
+<section class="anim-up" style="max-width:64rem;margin:0 auto;padding:10rem 1.5rem 0;position:relative;z-index:10;">
+  <h1 style="font-family:'Noto Serif SC',serif;font-size:clamp(2.5rem,6vw,4.2rem);font-weight:600;letter-spacing:-0.02em;line-height:1.15;color:var(--hx-text-strong);margin:0 0 1.5rem;">
     探索技术与设计的<br>
-    <span class="grad">无限边界.</span>
+    <span style="background:linear-gradient(to right,var(--hx-text-strong),var(--hx-text-faint));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">无限边界.</span>
   </h1>
-  <p class="hx-hero-desc">
+  <p style="font-size:clamp(1rem,2vw,1.15rem);font-weight:300;color:var(--hx-text-muted);max-width:38rem;line-height:1.75;margin:0 0 2.5rem;">
     我是一名全栈开发者与独立设计师。致力于构建具有卓越用户体验的数字化产品。在这里，我分享对代码、设计美学以及未来科技的深度思考。
   </p>
-  <div class="hx-hero-actions">
-    <a href="#articles" class="hx-read-link">
+  <div style="display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;">
+    <a href="#articles" style="display:inline-flex;align-items:center;gap:0.5rem;color:var(--hx-text-strong);font-weight:500;font-size:0.95rem;text-decoration:none;padding-bottom:0.25rem;border-bottom:1px solid var(--hx-dot);transition:border-color 0.3s;" onmouseover="this.style.borderColor='var(--hx-text-strong)'" onmouseout="this.style.borderColor='var(--hx-dot)'">
       阅读最新文章
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7v10"/></svg>
     </a>
-    <div class="hx-social">
-      <a href="https://github.com/bx-h" target="_blank" rel="noreferrer">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+    <div style="display:flex;align-items:center;gap:1rem;">
+      <a href="https://github.com/bx-h" target="_blank" rel="noreferrer" style="color:var(--hx-text-faint);transition:color 0.3s;" onmouseover="this.style.color='var(--hx-text-strong)'" onmouseout="this.style.color='var(--hx-text-faint)'">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
       </a>
-      <a href="https://x.com/jiaran_baobao" target="_blank" rel="noreferrer">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      <a href="https://x.com/jiaran_baobao" target="_blank" rel="noreferrer" style="color:var(--hx-text-faint);transition:color 0.3s;" onmouseover="this.style.color='var(--hx-text-strong)'" onmouseout="this.style.color='var(--hx-text-faint)'">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
       </a>
     </div>
   </div>
 </section>
 
-<!-- Articles -->
-<section class="hx-articles" id="articles">
+<div style="height:6rem;"></div>
+
+<section id="articles" style="max-width:64rem;margin:0 auto;padding:0 1.5rem 6rem;position:relative;z-index:10;">
   {{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
   {{ $paginator := .Paginate $pages }}
 
-  <div class="hx-sec-head">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/></svg>
-    <h2>最新思考</h2>
+  <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:2.5rem;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="var(--hx-text-strong)" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/></svg>
+    <h2 style="font-family:'Noto Serif SC',serif;font-size:1.5rem;font-weight:500;color:var(--hx-text-strong);margin:0;">最新思考</h2>
   </div>
 
   {{ range $paginator.Pages }}
@@ -364,55 +48,25 @@
         </div>
       </div>
       <p class="hx-excerpt">{{ .Summary | plainify | truncate 120 }}</p>
+      {{ with .Params.tags }}
+      <div class="hx-card-tags">
+        {{ range first 3 . }}<span>{{ . }}</span>{{ end }}
+      </div>
+      {{ end }}
       <div class="hx-card-read">
         阅读全文
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
       </div>
     </div>
   </a>
   {{ end }}
 
   {{ if gt $paginator.TotalPages 1 }}
-  <div class="hx-pag">
-    {{ if $paginator.HasPrev }}<a href="{{ $paginator.Prev.URL }}">← 上一页</a>{{ end }}
-    {{ if $paginator.HasNext }}<a href="{{ $paginator.Next.URL }}">下一页 →</a>{{ end }}
+  <div style="display:flex;justify-content:center;gap:1rem;margin-top:3rem;">
+    {{ if $paginator.HasPrev }}<a href="{{ $paginator.Prev.URL }}" style="font-size:0.85rem;font-weight:500;color:var(--hx-text-muted);text-decoration:none;padding:0.5rem 1.2rem;border-radius:999px;background:var(--hx-bg-card);border:1px solid var(--hx-border);transition:all 0.3s;">← 上一页</a>{{ end }}
+    {{ if $paginator.HasNext }}<a href="{{ $paginator.Next.URL }}" style="font-size:0.85rem;font-weight:500;color:var(--hx-text-muted);text-decoration:none;padding:0.5rem 1.2rem;border-radius:999px;background:var(--hx-bg-card);border:1px solid var(--hx-border);transition:all 0.3s;">下一页 →</a>{{ end }}
   </div>
   {{ end }}
-
-  <div class="hx-viewall">
-    <a href="{{ "archives" | relURL }}">
-      查看所有文章
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-    </a>
-  </div>
 </section>
-
-<!-- Footer -->
-<footer class="hx-ft">
-  <div class="hx-ft-inner">
-    <div class="hx-ft-brand">
-      <div class="hx-ft-dot">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z"/></svg>
-      </div>
-      <span>HBX's Space</span>
-    </div>
-    <p class="hx-ft-copy">&copy; {{ now.Year }} Designed & Built with pure passion.</p>
-  </div>
-</footer>
-
-<!-- Scroll behavior for nav -->
-<script>
-  (function() {
-    var nav = document.getElementById('hxNav');
-    if (!nav) return;
-    window.addEventListener('scroll', function() {
-      if (window.scrollY > 20) {
-        nav.classList.add('scrolled');
-      } else {
-        nav.classList.remove('scrolled');
-      }
-    });
-  })();
-</script>
 
 {{ end }}

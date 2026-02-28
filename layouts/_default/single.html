@@ -1,0 +1,194 @@
+{{ define "main" }}
+<style>
+  .hx-article {
+    max-width: 42rem; margin: 0 auto; padding: 8rem 1.5rem 4rem;
+    position: relative; z-index: 10;
+  }
+  .hx-back {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-size: 0.85rem; font-weight: 500; color: var(--hx-text-faint);
+    text-decoration: none; transition: color 0.3s; margin-bottom: 3rem;
+  }
+  .hx-back:hover { color: var(--hx-text-strong); }
+  .hx-back svg { width: 16px; height: 16px; transition: transform 0.2s; }
+  .hx-back:hover svg { transform: translateX(-3px); }
+
+  .hx-article header { margin-bottom: 3.5rem; }
+  .hx-article header h1 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    font-weight: 600; color: var(--hx-text-strong);
+    line-height: 1.2; margin: 0 0 1.5rem; letter-spacing: -0.02em;
+  }
+  .hx-article-meta {
+    display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.8rem;
+    color: var(--hx-text-faint); letter-spacing: 0.03em;
+  }
+  .hx-article-meta .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--hx-dot); }
+
+  .hx-article-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+  .hx-article-tags a {
+    font-size: 0.75rem; font-weight: 500; padding: 0.2rem 0.6rem; border-radius: 0.375rem;
+    background: var(--hx-tag-bg); color: var(--hx-text-muted); border: 1px solid var(--hx-tag-border);
+    text-decoration: none; transition: all 0.3s;
+  }
+  .hx-article-tags a:hover { border-color: var(--hx-border-hover); color: var(--hx-text-strong); }
+
+  /* Article content prose styling */
+  .hx-content {
+    font-size: 1.05rem; line-height: 1.85; color: var(--hx-text);
+  }
+  .hx-content h2 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 1.6rem; font-weight: 500; color: var(--hx-text-strong);
+    margin: 3rem 0 1rem; letter-spacing: -0.01em;
+  }
+  .hx-content h3 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 1.3rem; font-weight: 500; color: var(--hx-text-strong);
+    margin: 2.5rem 0 0.8rem;
+  }
+  .hx-content p { margin: 0 0 1.5rem; }
+  .hx-content a { color: var(--hx-accent); text-decoration: underline; text-underline-offset: 3px; }
+  .hx-content a:hover { text-decoration-thickness: 2px; }
+  .hx-content strong { color: var(--hx-text-strong); font-weight: 600; }
+  .hx-content blockquote {
+    border-left: 4px solid rgba(217,119,6,0.3);
+    padding: 0.5rem 0 0.5rem 1.5rem; margin: 2rem 0;
+    color: var(--hx-text-muted); font-style: italic;
+    font-family: 'Noto Serif SC', serif; font-size: 1.15rem;
+    background: linear-gradient(to right, var(--hx-bg-card), transparent);
+    border-radius: 0 0.5rem 0.5rem 0;
+  }
+  .hx-content ul, .hx-content ol { margin: 0 0 1.5rem; padding-left: 1.5rem; }
+  .hx-content li { margin-bottom: 0.75rem; }
+  .hx-content li strong { color: var(--hx-text-strong); }
+  .hx-content pre {
+    background: #2a2826; color: #d6d3d1;
+    padding: 1.5rem 2rem; border-radius: 1rem; overflow-x: auto;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.88rem;
+    line-height: 1.6; margin: 2rem 0;
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.08);
+    border: 1px solid rgba(87,83,78,0.3);
+  }
+  .hx-content code:not(pre code) {
+    background: var(--hx-tag-bg); padding: 0.15rem 0.4rem; border-radius: 0.25rem;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.88em;
+    color: var(--hx-accent);
+  }
+  .hx-content img {
+    max-width: 100%; height: auto; border-radius: 1rem;
+    margin: 2rem 0; box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+  }
+  .hx-content table {
+    width: 100%; border-collapse: collapse; margin: 2rem 0;
+    font-size: 0.92rem;
+  }
+  .hx-content th, .hx-content td {
+    padding: 0.75rem 1rem; border-bottom: 1px solid var(--hx-border);
+    text-align: left;
+  }
+  .hx-content th {
+    font-weight: 600; color: var(--hx-text-strong);
+    background: var(--hx-bg-card);
+  }
+
+  /* Author card */
+  .hx-author {
+    display: flex; align-items: center; gap: 1rem;
+    margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--hx-border);
+  }
+  .hx-author-avatar {
+    width: 48px; height: 48px; border-radius: 50%;
+    background: var(--hx-bg-subtle); display: flex; align-items: center; justify-content: center;
+    font-family: 'Noto Serif SC', serif; font-size: 1.1rem; color: var(--hx-text-muted); font-weight: 500;
+  }
+  .hx-author-name { font-weight: 500; color: var(--hx-text-strong); }
+  .hx-author-bio { font-size: 0.85rem; color: var(--hx-text-muted); }
+
+  /* Post navigation */
+  .hx-post-nav {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+    margin-top: 3rem;
+  }
+  .hx-post-nav a {
+    display: block; padding: 1.2rem 1.5rem; border-radius: 1rem;
+    background: var(--hx-bg-card); border: 1px solid var(--hx-border);
+    text-decoration: none; transition: all 0.3s;
+  }
+  .hx-post-nav a:hover {
+    background: var(--hx-bg-card-hover); border-color: var(--hx-border-hover);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+  }
+  .hx-post-nav .nav-label {
+    font-size: 0.75rem; color: var(--hx-text-faint); margin-bottom: 0.3rem;
+    font-family: 'JetBrains Mono', monospace; letter-spacing: 0.05em;
+  }
+  .hx-post-nav .nav-title {
+    font-family: 'Noto Serif SC', serif; font-size: 0.95rem; font-weight: 500;
+    color: var(--hx-text-strong); line-height: 1.4;
+  }
+  .hx-post-nav .next { text-align: right; }
+
+  @media (max-width: 640px) {
+    .hx-article { padding-top: 6rem; }
+    .hx-post-nav { grid-template-columns: 1fr; }
+  }
+</style>
+
+<article class="hx-article anim-up">
+  <a href="{{ "" | absLangURL }}" class="hx-back">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/></svg>
+    返回
+  </a>
+
+  <header>
+    {{ with .Params.tags }}
+    <div class="hx-article-tags">
+      {{ range . }}<a href="{{ "tags/" | absURL }}{{ . | urlize }}/">{{ . }}</a>{{ end }}
+    </div>
+    {{ end }}
+
+    <h1>{{ .Title }}</h1>
+
+    <div class="hx-article-meta">
+      <time>{{ .Date.Format "2006年 1月 02日" }}</time>
+      <span class="dot"></span>
+      <span>{{ .ReadingTime }} 分钟阅读</span>
+    </div>
+  </header>
+
+  <div class="hx-content">
+    {{ .Content }}
+  </div>
+
+  <div class="hx-author">
+    <div class="hx-author-avatar">H.</div>
+    <div>
+      <div class="hx-author-name">HBX</div>
+      <div class="hx-author-bio">全栈开发者 / 独立设计师</div>
+    </div>
+  </div>
+
+  {{- $prev := .PrevInSection }}
+  {{- $next := .NextInSection }}
+  {{ if or $prev $next }}
+  <nav class="hx-post-nav">
+    {{ if $next }}
+    <a href="{{ $next.Permalink }}">
+      <div class="nav-label">← 上一篇</div>
+      <div class="nav-title">{{ $next.Title }}</div>
+    </a>
+    {{ else }}<div></div>{{ end }}
+    {{ if $prev }}
+    <a href="{{ $prev.Permalink }}" class="next">
+      <div class="nav-label">下一篇 →</div>
+      <div class="nav-title">{{ $prev.Title }}</div>
+    </a>
+    {{ end }}
+  </nav>
+  {{ end }}
+</article>
+
+{{ end }}
