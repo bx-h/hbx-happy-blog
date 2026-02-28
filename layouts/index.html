@@ -61,9 +61,39 @@
 </style>
 
 
-<main class="main">
+<main class="main" style="min-height: auto; justify-content: flex-start; padding-top: 15vh;">
     <div id="typewriter-container">
         <span id="typewriter-text"></span>
+    </div>
+
+    <div style="width: 100%; max-width: 800px; margin: 3rem auto 0; text-align: left;">
+      {{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
+      {{ $paginator := .Paginate $pages }}
+      {{ range $paginator.Pages }}
+      <article class="post-entry">
+        <header class="entry-header">
+          <h2>
+            <a href="{{ .Permalink }}" style="color: var(--content); text-decoration: none;">{{ .Title }}</a>
+          </h2>
+        </header>
+        <div class="entry-content">
+          <p>{{ .Summary }}</p>
+        </div>
+        <footer class="entry-footer">
+          <span style="color: var(--secondary); font-size: 0.85rem;">{{ .Date.Format "2006-01-02" }}</span>
+        </footer>
+      </article>
+      {{ end }}
+      {{ if gt $paginator.TotalPages 1 }}
+      <nav class="pagination">
+        {{ if $paginator.HasPrev }}
+        <a class="prev" href="{{ $paginator.Prev.URL }}">« 上一页</a>
+        {{ end }}
+        {{ if $paginator.HasNext }}
+        <a class="next" href="{{ $paginator.Next.URL }}">下一页 »</a>
+        {{ end }}
+      </nav>
+      {{ end }}
     </div>
 </main>
 
