@@ -1,114 +1,394 @@
-{{/* * 这是一个“一体式”的首页布局
-  * V3 版本：
-  * 1. 修复了暗黑模式 (使用 var(--content))
-  * 2. 更换为“极客”等宽字体 (Monospace)
-  * 3. 保持手机响应式
-  */}}
-
 {{ define "main" }}
+
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
-  /* 1. 主容器 (保持不变) */
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  /* ===== Reset PaperMod main styling ===== */
   main.main {
+    min-height: auto;
+    padding: 0;
+    max-width: 100%;
+  }
+
+  /* ===== Hero Section ===== */
+  .hero {
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 4rem 2rem;
+  }
+
+  /* Animated gradient mesh background */
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 20% 50%, rgba(56, 189, 248, 0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 60% at 80% 30%, rgba(168, 85, 247, 0.06) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 50% at 60% 80%, rgba(59, 130, 246, 0.05) 0%, transparent 70%);
+    animation: meshShift 20s ease-in-out infinite alternate;
+    z-index: 0;
+  }
+
+  @keyframes meshShift {
+    0% { opacity: 1; transform: scale(1) rotate(0deg); }
+    50% { opacity: 0.8; transform: scale(1.1) rotate(1deg); }
+    100% { opacity: 1; transform: scale(1) rotate(-1deg); }
+  }
+
+  /* Floating grid dots */
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, var(--content) 0.5px, transparent 0.5px);
+    background-size: 48px 48px;
+    opacity: 0.04;
+    z-index: 0;
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+    text-align: center;
+  }
+
+  /* Glowing accent line */
+  .hero-accent {
+    display: inline-block;
+    width: 48px;
+    height: 3px;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    border-radius: 2px;
+    margin-bottom: 2rem;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  }
+
+  .hero-title {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    color: var(--content);
+    margin: 0 0 1.5rem;
+  }
+
+  .hero-title .gradient-text {
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-subtitle {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: clamp(1rem, 2.2vw, 1.25rem);
+    font-weight: 300;
+    color: var(--secondary);
+    line-height: 1.7;
+    margin: 0 0 2.5rem;
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Terminal-style status bar */
+  .hero-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.2rem;
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--secondary);
+    transition: all 0.3s ease;
+  }
+
+  .hero-status:hover {
+    border-color: #3b82f6;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.1);
+  }
+
+  .status-dot {
+    width: 6px;
+    height: 6px;
+    background: #22c55e;
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  /* Scroll indicator */
+  .scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     flex-direction: column;
-    justify-content: center; /* 垂直居中 */
-    align-items: center;   /* 水平居中 */
-    text-align: center;
-    min-height: 100vh;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--secondary);
+    opacity: 0.4;
+    animation: scrollBounce 2s ease-in-out infinite;
   }
 
-  /* 2. 打字机主体 (已更新) */
-  #typewriter-container {
-    font-size: 4rem; 
+  .scroll-hint svg {
+    width: 20px;
+    height: 20px;
+  }
 
-    /* === 变更 #1：更换为“极客”等宽字体 === */
-    /* 这会依次查找你电脑上安装的字体，最后使用通用 monospace */
-    font-family: 'Fira Code', 'Menlo', 'Monaco', monospace;
-    
-    /* 等宽字体在 300 权重下可能太细，400 (normal) 更清晰 */
-    font-weight: 400; 
+  @keyframes scrollBounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(6px); }
+  }
 
-    /* === 变更 #2：修复暗黑模式 === */
-    /* * 不再使用 color: #222;
-     * var(--content) 是 PaperMod 的 "正文颜色" 变量
-     * 它会在亮色模式下变为深色，在暗色模式下变为亮色
-     */
+  /* ===== Posts Section ===== */
+  .posts-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 4rem 2rem 6rem;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #3b82f6;
+  }
+
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .section-count {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--secondary);
+  }
+
+  /* Post card */
+  .post-card {
+    display: block;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border);
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s ease;
+    position: relative;
+  }
+
+  .post-card::after {
+    content: '';
+    position: absolute;
+    left: -1rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: transparent;
+    border-radius: 1px;
+    transition: background 0.2s ease;
+  }
+
+  .post-card:hover {
+    padding-left: 0.5rem;
+  }
+
+  .post-card:hover::after {
+    background: linear-gradient(180deg, #3b82f6, #8b5cf6);
+  }
+
+  .post-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .post-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--secondary);
+  }
+
+  .post-tag {
+    font-size: 0.7rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    background: var(--code-bg);
+    color: var(--secondary);
+    border: 1px solid var(--border);
+    font-family: 'Inter', sans-serif;
+  }
+
+  .post-card-title {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.4;
     color: var(--content);
+    margin: 0 0 0.4rem;
+    transition: color 0.2s ease;
   }
 
-  /* 3. 打字机光标 (已更新) */
-  .typed-cursor {
-    font-size: 4rem; 
-
-    /* === 变更 #3：修复暗黑模式 (光标) === */
-    /* * 使用 var(--tertiary-content) 
-     * 这通常是一个比正文 "更灰" 一点的颜色
-     * 在暗黑/亮色模式下都会自动适配
-     */
-    color: var(--tertiary-content);
-    animation-duration: 0.7s; 
+  .post-card:hover .post-card-title {
+    color: #3b82f6;
   }
 
-  /* 4. 响应式：在手机等小屏幕上 (保持不变) */
-  /* 这个样式会同时适配新的字体和颜色 */
-  @media (max-width: 768px) {
-    #typewriter-container,
-    .typed-cursor {
-      font-size: 2.2rem;
+  .post-summary {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 0.9rem;
+    color: var(--secondary);
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Pagination */
+  .page-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .page-nav a {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    color: var(--secondary);
+    text-decoration: none;
+    padding: 0.5rem 1.2rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    transition: all 0.2s ease;
+  }
+
+  .page-nav a:hover {
+    color: #3b82f6;
+    border-color: #3b82f6;
+    box-shadow: 0 0 12px rgba(59, 130, 246, 0.1);
+  }
+
+  /* ===== Dark mode adjustments ===== */
+  [data-theme="dark"] .hero::before {
+    background:
+      radial-gradient(ellipse 60% 50% at 20% 50%, rgba(56, 189, 248, 0.06) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 60% at 80% 30%, rgba(168, 85, 247, 0.05) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 50% at 60% 80%, rgba(59, 130, 246, 0.04) 0%, transparent 70%);
+  }
+
+  /* ===== Mobile responsive ===== */
+  @media (max-width: 640px) {
+    .hero {
+      min-height: 75vh;
+      padding: 3rem 1.5rem;
+    }
+    .posts-section {
+      padding: 2rem 1.5rem 4rem;
+    }
+    .post-card::after {
+      display: none;
+    }
+    .post-card:hover {
+      padding-left: 0;
     }
   }
 </style>
 
-
-<main class="main" style="min-height: auto; justify-content: flex-start; padding-top: 15vh;">
-    <div id="typewriter-container">
-        <span id="typewriter-text"></span>
+<!-- ===== Hero ===== -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-accent"></div>
+    <h1 class="hero-title">
+      思考<span class="gradient-text">，</span>记录<span class="gradient-text">，</span><br>
+      <span class="gradient-text">沉淀</span>
+    </h1>
+    <p class="hero-subtitle">
+      一个普通人的数字花园。关于技术、生活与成长的长期实验。
+    </p>
+    <div class="hero-status">
+      <span class="status-dot"></span>
+      <span id="post-count">{{ len (where site.RegularPages "Type" "in" site.Params.mainSections) }} 篇文章</span>
+      <span>·</span>
+      <span>持续记录中</span>
     </div>
+  </div>
+  <div class="scroll-hint">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+    </svg>
+  </div>
+</section>
 
-    <div style="width: 100%; max-width: 800px; margin: 3rem auto 0; text-align: left;">
-      {{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
-      {{ $paginator := .Paginate $pages }}
-      {{ range $paginator.Pages }}
-      <article class="post-entry">
-        <header class="entry-header">
-          <h2>
-            <a href="{{ .Permalink }}" style="color: var(--content); text-decoration: none;">{{ .Title }}</a>
-          </h2>
-        </header>
-        <div class="entry-content">
-          <p>{{ .Summary }}</p>
-        </div>
-        <footer class="entry-footer">
-          <span style="color: var(--secondary); font-size: 0.85rem;">{{ .Date.Format "2006-01-02" }}</span>
-        </footer>
-      </article>
-      {{ end }}
-      {{ if gt $paginator.TotalPages 1 }}
-      <nav class="pagination">
-        {{ if $paginator.HasPrev }}
-        <a class="prev" href="{{ $paginator.Prev.URL }}">« 上一页</a>
-        {{ end }}
-        {{ if $paginator.HasNext }}
-        <a class="next" href="{{ $paginator.Next.URL }}">下一页 »</a>
-        {{ end }}
-      </nav>
+<!-- ===== Posts ===== -->
+<section class="posts-section">
+  {{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
+  {{ $paginator := .Paginate $pages }}
+
+  <div class="section-header">
+    <span class="section-label">Latest Posts</span>
+    <span class="section-line"></span>
+    <span class="section-count">{{ len $pages }} total</span>
+  </div>
+
+  {{ range $paginator.Pages }}
+  <a class="post-card" href="{{ .Permalink }}">
+    <div class="post-meta">
+      <span class="post-date">{{ .Date.Format "2006.01.02" }}</span>
+      {{ range .Params.tags | first 2 }}
+      <span class="post-tag">{{ . }}</span>
       {{ end }}
     </div>
-</main>
+    <h2 class="post-card-title">{{ .Title }}</h2>
+    {{ if .Description }}
+    <p class="post-summary">{{ .Description }}</p>
+    {{ else }}
+    <p class="post-summary">{{ .Summary }}</p>
+    {{ end }}
+  </a>
+  {{ end }}
 
-<script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var options = {
-      strings: ['HBX的快乐博客', '思考, 记录, 沉淀.', 'Welcome to my blog.'],
-      typeSpeed: 100,
-      backSpeed: 50,
-      backDelay: 2000,
-      loop: true
-    };
-    var typed = new Typed('#typewriter-text', options);
-  });
-</script>
+  {{ if gt $paginator.TotalPages 1 }}
+  <nav class="page-nav">
+    {{ if $paginator.HasPrev }}
+    <a href="{{ $paginator.Prev.URL }}">← 上一页</a>
+    {{ end }}
+    {{ if $paginator.HasNext }}
+    <a href="{{ $paginator.Next.URL }}">下一页 →</a>
+    {{ end }}
+  </nav>
+  {{ end }}
+</section>
 
 {{ end }}
