@@ -48,19 +48,10 @@ params:
   ShowCodeCopyButtons: true
   ShowToc: true
 
-  # 首页配置 (启用 Profile Mode，这才是你想要的)
-  profileMode:
-    enabled: true
-    title: "HBX的快乐博客"
-    subtitle: "欢迎来到我的数字根据地。思考，记录，沉淀。"
-    imageUrl: "" # 以后换成你的头像 URL, 比如 "images/avatar.jpg"
-    imageWidth: 120
-    imageHeight: 120
-    buttons:
-      - name: 全部文章
-        url: posts
-      - name: 关于我
-        url: about
+  # 首页配置 (homeInfoParams + 文章列表)
+  homeInfoParams:
+    Title: "HBX的快乐博客"
+    Content: "欢迎来到我的数字根据地。思考，记录，沉淀。"
 
   # 社交链接 (只放你有的)
   socialIcons:
