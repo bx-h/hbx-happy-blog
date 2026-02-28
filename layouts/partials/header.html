@@ -1,0 +1,22 @@
+{{- /* Custom header - only show on non-home pages, home has its own nav */ -}}
+{{- if not .IsHome }}
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="{{ "" | absLangURL }}" accesskey="h">
+                <span class="logo__mark">✦</span>
+                <span class="logo__text">HBX.</span>
+            </a>
+        </div>
+        <ul id="menu">
+            {{- range site.Menus.main }}
+            <li>
+                <a href="{{ .URL | absLangURL }}" title="{{ .Title | default .Name }}">
+                    <span>{{ .Name }}</span>
+                </a>
+            </li>
+            {{- end }}
+        </ul>
+    </nav>
+</header>
+{{- end }}
