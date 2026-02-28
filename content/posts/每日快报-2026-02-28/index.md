@@ -45,6 +45,14 @@ tags:
 4. **📱 Duolingo 暴跌14%** — 发布低于预期的 Q1 和全年指引，增长放缓引发市场担忧
    [CNBC](https://www.cnbc.com/2026/02/26/stock-market-today-live-updates.html)
 
+> 📌 晚间更新
+
+5. **📊 华尔街二月收官全线下跌** — 通胀数据浇灭上半年降息希望，AI 不确定性+关税+地缘政治三重压力，纳指二月跌幅惨烈
+   [Reuters](https://www.reuters.com/business/us-stock-futures-falter-ai-jitters-nasdaq-braces-steep-monthly-fall-2026-02-27/)
+
+6. **🚀 Block 股价暴涨16%** — Jack Dorsey 宣布将裁员近一半并全面引入 AI，市场反应积极
+   [Reuters](https://www.reuters.com/sustainability/sustainable-finance-reporting/block-shares-soar-dorsey-leans-ai-trim-workforce-2026-02-27/)
+
 
 ## 🤖 AI 动态
 
@@ -59,6 +67,14 @@ tags:
 
 4. **EFF：科技公司不应被胁迫进行监控** — 特朗普政府准备通过行政命令惩罚制定 AI 监管法律的州
    [EFF](https://www.eff.org/deeplinks/2026/02/tech-companies-shouldnt-be-bullied-doing-surveillance)
+
+> 📌 晚间更新
+
+5. **🔥 特朗普封杀 Anthropic：联邦政府全面禁用** — 五角大楼将 Anthropic 列为国家安全风险，Anthropic 拒绝配合军方要求。OpenAI 同日与国防部达成协议，AI 竞争深度卷入政治博弈
+   [NPR](https://www.npr.org/2026/02/27/nx-s1-5729118/trump-anthropic-pentagon-openai-ai-weapons-ban) | [CNBC](https://www.cnbc.com/2026/02/27/trump-anthropic-ai-pentagon.html) | [NYT](https://www.nytimes.com/2026/02/27/technology/openai-agreement-pentagon-ai.html)
+
+6. **💼 Block（Square）宣布裁员近半，全面拥抱 AI** — Jack Dorsey 主导的金融科技公司大规模重组，股价反而暴涨16%
+   [Reuters](https://www.reuters.com/sustainability/sustainable-finance-reporting/block-shares-soar-dorsey-leans-ai-trim-workforce-2026-02-27/)
 
 
 ## 🔥 极客社区热门
@@ -77,6 +93,11 @@ tags:
 
 5. **🛠️ 2026 年你应该替换的 10 个开发工具** — Dev.to 热文，CRA → Vite 等实用建议
    [Dev.to](https://dev.to/__be2942592/10-developer-tools-i-used-to-swear-by-that-i-completely-replaced-in-2026-57c4)
+
+> 📌 晚间更新
+
+6. **💀 HN 热议：Block 大裁员** — Hacker News 热帖，讨论 AI 是否真能提升 40% 生产力，还是只是裁员的借口
+   [Hacker News](https://news.ycombinator.com/item?id=47172119)
 
 
 ## 📖 好文推荐
