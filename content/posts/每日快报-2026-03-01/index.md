@@ -44,6 +44,14 @@ tags:
 
 5. **特朗普「改道」征税：15%，150 天** — 新关税政策调整引发国际贸易格局变化 → [国际金融报](https://m.jrj.com.cn/)
 
+> 📌 晚间更新
+
+6. **🚨 美以联合空袭伊朗，最高领袖哈梅内伊确认死亡** — 2/28 美以发动数十年来最大规模打击，伊朗革命卫队誓言报复并袭击 27 处美军基地和以色列军事设施，全球市场将剧烈波动 → [Reuters](https://www.reuters.com/business/aerospace-defense/israel-us-launch-strikes-iran-2026-02-28/)
+
+7. **美国 2 月 PPI 大超预期，通胀担忧加剧** — 批发价格月涨 0.5%（预期 0.3%），核心 PPI 飙升 0.8%（预期 0.3%） → [Stock Market Watch](https://stockmarketwatch.com/live/stock-market-today/)
+
+8. **美财政部制裁瑞士 MBaer 银行** — 因违反对伊朗、俄罗斯、委内瑞拉制裁，威胁切断其美国金融系统准入 → [Reuters](https://www.reuters.com/business/finance/)
+
 ---
 
 ## 🤖 AI 动态
@@ -58,6 +66,14 @@ tags:
 
 5. **Google 发布 Nano Banana 2 图像生成模型** — 结合 Pro 级能力与极快速度，去年 Nano Banana 曾病毒式传播 → [Radical Data Science](https://radicaldatascience.wordpress.com/2026/02/26/ai-news-briefs-bulletin-board-for-february-2026/)
 
+> 📌 晚间更新
+
+6. **特朗普下令所有联邦机构停用 Anthropic，Hegseth 将其列为「供应链风险」** — 该标签通常仅用于外国敌对势力，所有国防承包商被禁止与 Anthropic 有任何商业往来 → [BBC](https://www.bbc.com/news/articles/cn48jj3y8ezo)
+
+7. **OpenAI 与五角大楼签约，将在军方机密网络部署 AI** — Sam Altman 声称不用于「大规模监控」或「自主武器」，时机恰逢 Anthropic 被封杀 → [Al Jazeera](https://www.aljazeera.com/news/2026/2/28/openai-strikes-deal-with-pentagon-to-use-tech-in-classified-network)
+
+8. **阿里巴巴开源 Qwen3.5 122B/35B，性能媲美 Claude Sonnet 4.5** — 可在本地运行的中等规模模型，开源社区反响热烈 → [VentureBeat](https://venturebeat.com/technology/alibabas-new-open-source-qwen3-5-medium-models-offer-sonnet-4-5-performance)
+
 ---
 
 ## 🔥 极客社区热门
@@ -71,6 +87,16 @@ tags:
 4. 🟢 **Dev.to | 10 个我曾深信不疑但在 2026 年彻底替换的开发工具** — Create React App → Vite 等，实用的工具迁移指南 → [Dev.to](https://dev.to/__be2942592/10-developer-tools-i-used-to-swear-by-that-i-completely-replaced-in-2026-57c4)
 
 5. 🟠 **HN | Windows 95 UI：一个可用性工程案例研究（1996）** — 30 年前的经典 UI 设计论文重新被热议，设计原则历久弥新 → [Hacker News](https://news.ycombinator.com/item?id=47200904)
+
+> 📌 晚间更新
+
+6. 🟠 **HN | "We Will Not Be Divided"** — 反对社会撕裂的联名运动引发热议 *(2577 points, 819 comments)* → [Hacker News](https://news.ycombinator.com/item?id=47188473)
+
+7. 🟠 **HN | Gary Marcus: "The whole thing was a scam"** — AI 泡沫论再掀波澜，引发激烈辩论 *(867 points)* → [Hacker News](https://news.ycombinator.com/item?id=47197505)
+
+8. 🟠 **HN | Woxi: 用 Rust 重写 Wolfram Mathematica** — 开源替代方案引关注 *(305 points)* → [Hacker News](https://news.ycombinator.com/item?id=47155526)
+
+9. 🟠 **HN | Show HN: Now I Get It — 将科学论文转化为交互式网页** — 学术可视化新工具 *(250 points)* → [Hacker News](https://news.ycombinator.com/item?id=47195123)
 
 ---
 
