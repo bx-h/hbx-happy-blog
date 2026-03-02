@@ -37,6 +37,12 @@ tags:
 
 4. **⛽ OPEC+考虑更大幅度增产**：消息人士称日产量最多增加41.1万桶，在中东紧张局势下尤为关键
 
+> 📌 晚间更新
+
+5. **📉 全球股市周一暴跌**：中东局势引发全面避险，道指期货跌576点（-1.2%），标普跌1.1%，印度Sensex暴跌超1000点至80000关口，迪拜金融市场宣布3月2-3日暂停交易。A股相对抗跌，分析师认为中东冲突不改A股长期趋势 → [CNBC](https://www.cnbc.com/2026/03/01/stock-market-today-live-update.html)
+
+6. **⛽ 油价飙升引发美联储加息担忧**：伊朗局势持续推高油价，分析师警告若油价突破100美元/桶，美联储可能被迫重新考虑加息。目前市场预期3月维持利率3.50-3.75%的概率为95.6% → [新浪财经](https://finance.sina.cn/2026-03-02/detail-inhpqeet1523043.d.html)
+
 ---
 
 ## 🤖 AI 动态
@@ -49,6 +55,12 @@ tags:
 
 4. **💵 AI 生产力红利难解债务困局**：Reuters 分析指出，即使 AI 生产力爆发，也不足以让主要经济体摆脱公共财政压力 → [Reuters](https://www.reuters.com/world/europe/ai-boom-will-be-no-free-pass-debt-laden-major-economies-2026-02-27/)
 
+> 📌 晚间更新
+
+5. **💰 OpenAI 完成史上最大私募融资 $1100亿**：Amazon 出资$500亿、Nvidia $300亿、SoftBank $300亿，OpenAI 估值达$7300亿，融资规模是史上最大IPO的4倍。计划2029年前支出$1150亿用于算力和研发 → [Business Insider](https://www.businessinsider.com/openai-funding-round-4-times-bigger-than-largest-ipo-2026-2) | [Electronics Weekly](https://www.electronicsweekly.com/news/business/openai-completes-110bn-funding-round-2026-03/)
+
+6. **🗣️ Amazon CEO：AI 会改变工作，而非消灭工作**：Andy Jassy 公开表示大规模AI失业的恐惧被夸大，AI 更多是改变工作方式而非取代人类 → [News Today](https://newstodaynet.com/2026/03/02/ai-will-change-jobs-not-end-them-amazon-ceo/)
+
 ---
 
 ## 🔥 极客社区热门
@@ -60,6 +72,12 @@ tags:
 3. **GitHub Trending** — [HuggingFace 官方 Agent Skills 仓库](https://sejiwork.com/en/blog/post/github-trending-daily-2026-02-25) — HuggingFace 发布官方 agent skills 仓库，构建标准化 AI agent 技能生态
 
 4. **Hackaday** — [NASA Artemis II 准备发射](https://hackaday.com/2026/02/22/hackaday-links-february-22-2026/) — 人类时隔54年再次载人绕月飞行！Artemis II 最快4月发射，极客社区兴奋不已 🚀
+
+> 📌 晚间更新
+
+5. **🍎 Apple 发布周正式开始**：Tim Cook 预告"大事将至"，本周将陆续发布 iPhone 17e、低价 MacBook、新 iPad 系列、可能还有新款 Studio Display，主打"平价苹果"路线 → [MacRumors](https://www.macrumors.com/2026/03/01/apples-next-launch-starts-tomorrow/) | [Creative Bloq](https://www.creativebloq.com/live/news/apple-event-march-2026)
+
+6. **🔓 OpenClaw 曝 ClawJacked 安全漏洞**：The Hacker News 报道恶意网站可通过 WebSocket 劫持本地 OpenClaw AI Agent，同时发现71个恶意 ClawHub skills 传播恶意软件和加密骗局。已发布补丁修复 → [The Hacker News](https://thehackernews.com/2026/02/clawjacked-flaw-lets-malicious-sites.html)
 
 ---
 
