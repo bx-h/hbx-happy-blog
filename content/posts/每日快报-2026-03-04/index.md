@@ -44,6 +44,14 @@ tags:
 
 4. **迪拜金融市场今日恢复交易** — 配合阿联酋证券市场管理局决定，DFM于3月4日重新开市。[FX News Group](https://fxnewsgroup.com/forex-news/exchanges/trading-on-dubai-financial-market-set-to-resume-on-march-4-2026/)
 
+> 📌 晚间更新
+
+5. **美股周二再度收跌，中东+关税双重打压** — 道指跌0.83%，纳指跌1.02%，标普500跌0.94%。英伟达跌超1%，特斯拉跌超2%，阿斯麦跌超4%。财政部长Bessent暗示15%全球关税可能本周生效。[CNBC](https://www.cnbc.com/2026/03/03/stock-market-today-live-updates.html)
+
+6. **韩国Kospi暴跌7.24%，创年内最大单日跌幅** — 亚欧市场连续第二天下挫，欧洲Stoxx 600跌3.08%，日经225跌3.06%。[CNN](https://www.cnn.com/2026/03/03/investing/us-stocks-iran)
+
+7. **中概股普跌，金龙指数收跌3.34%** — 台积电、阿里巴巴、拼多多均下跌。[新浪财经](https://finance.sina.com.cn/headline/2026-03-04/doc-inhpunat0306365.shtml)
+
 ---
 
 ## 🤖 AI 动态
@@ -58,6 +66,14 @@ tags:
 
 5. **伦敦爆发大规模反 AI 抗议** — 数百人在伦敦 AI 科技园区集会游行，警告 AI 潜在危害。MIT Technology Review 记者现场报道。[MIT Tech Review](https://www.technologyreview.com/2026/03/02/1133814/i-checked-out-londons-biggest-ever-anti-ai-protest/)
 
+> 📌 晚间更新
+
+6. **Google 发布 Gemini 3.1 Flash-Lite** — 主打高吞吐低成本，输入$0.25/百万token，输出$1.50/百万token，对标GPT-5 mini和Claude 4.5 Haiku。[Dataconomy](https://dataconomy.com/2026/03/04/google-launches-high-speed-gemini-3-1-flash-lite/)
+
+7. **ECB博客：AI尚未导致欧洲企业裁员** — 欧洲央行研究显示，AI使用最多的企业反而在增加员工。[Bloomberg](https://www.bloomberg.com/news/articles/2026-03-04/ai-use-hasn-t-cost-jobs-at-european-firms-yet-ecb-blog-says)
+
+8. **现代汽车投$60亿建机器人/AI/数据中心集群** — 现代宣布将量产MobED移动机器人，在韩国建设大型机器人产业园区。[Automotive News](https://www.autonews.com/hyundai/an-hyundai-korea-mobed-robotics-hydrogen-ai-data-center-0304/)
+
 ---
 
 ## 🔥 极客社区热门
@@ -71,6 +87,16 @@ tags:
 4. 🤖 **"Don't Make Me Talk to Your Chatbot"** — HN 191 points，吐槽企业用聊天机器人替代人工客服的趋势。共鸣感爆棚。[raymyers.org](https://raymyers.org/post/dont-make-me-talk-to-your-chatbot/) `HackerNews`
 
 5. ⚡ **Talos：深度卷积神经网络硬件加速器** — 开源硬件加速器项目，专为 CNN 设计，HN 新上榜。[talos.wtf](https://talos.wtf/) `HackerNews`
+
+> 📌 晚间更新
+
+6. 📱 **Motorola GrapheneOS设备将支持解锁/重锁Bootloader** — HN 871 points，安卓安全社区重大利好，隐私手机多了新选择。[GrapheneOS](https://grapheneos.social/@GrapheneOS/116160393783585567) `HackerNews`
+
+7. 🤖 **Agentic Engineering Patterns（Simon Willison）** — HN 229 points，总结AI Agent工程化的设计模式，实用性极高。[simonwillison.net](https://simonwillison.net/guides/agentic-engineering-patterns/) `HackerNews`
+
+8. 💻 **A CPU that runs entirely on GPU** — HN 134 points，用GPU模拟完整CPU运行，脑洞大开的实验项目。[GitHub](https://github.com/robertcprice/nCPU) `HackerNews`
+
+9. 🚂 **Bet on German Train Delays** — HN 116 points，一个可以押注德国火车晚点的网站，德铁的准点率成了赌局素材😂。[bahn.bet](https://bahn.bet) `HackerNews`
 
 ---
 
