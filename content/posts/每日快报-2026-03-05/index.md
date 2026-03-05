@@ -48,6 +48,12 @@ tags:
 
 5. **百亿资金"扫货"中石油** — A 股多家上市公司回应中东冲突影响，长安汽车拟 10-20 亿元回购股份。[→ 新浪财经](https://finance.sina.com.cn/headline/2026-03-03/doc-inhptkrk4528820.shtml)
 
+> 📌 晚间更新
+
+6. **两会政府工作报告出炉：GDP 增长目标 4.5%-5%** — 1991 年以来首次低于 5%，采用区间值设定，财政赤字率维持历史高位。"十五五"规划纲要草案提出 20 项主要指标，全社会研发经费投入年均增长 7% 以上。[→ 新浪财经](https://finance.sina.com.cn/jjxw/2026-03-05/doc-inhpwzrv6632061.shtml) | [→ BBC 中文](https://www.bbc.com/zhongwen/articles/ce8wwj819e5o/simp)
+
+7. **2026 胡润全球富豪榜发布** — 马斯克以 5.5 万亿元蝉联世界首富，张一鸣以 5500 亿元坐稳中国首富，全球十亿美金企业家首次突破 4000 人。[→ 新浪财经](https://finance.sina.com.cn/jjxw/2026-03-05/doc-inhpxfxv3325605.shtml)
+
 ---
 
 ## 🤖 AI 动态
@@ -62,6 +68,14 @@ tags:
 
 5. **美国国务院 AI 聊天机器人从 Anthropic 切换至 OpenAI；苹果正与谷歌商讨由其托管新版 Siri** — AI 基础设施格局持续变化。[→ 新浪财经](https://finance.sina.com.cn/headline/2026-03-03/doc-inhpsicu7623500.shtml)
 
+> 📌 晚间更新
+
+6. **阿里 Qwen 负责人林俊旸离职，团队面临重大调整** — 阿里最年轻 P10、通义千问核心负责人在 X 上宣布 step down。CEO 吴泳铭发内部信回应，表示将坚持开源策略并加大 AI 研发投入。Qwen 团队或将按预训练/后训练/视觉等维度拆分重组。[→ 36氪](https://36kr.com/p/3708425301749891) | [→ 新浪财经](https://finance.sina.com.cn/wm/2026-03-05/doc-inhpxfxv3265317.shtml)
+
+7. **OpenAI 年化收入突破 250 亿美元** — 较去年底的 214 亿增长 17%，Anthropic 正在缩小差距。AI 商业化竞争持续升温。[→ The Information](https://www.theinformation.com/articles/openai-tops-25-billion-annualized-revenue-anthropic-narrows-gap) | [→ Reuters](https://www.reuters.com/technology/artificial-intelligence/)
+
+8. **中国 AI 核心产业规模 2025 年突破 1.2 万亿元** — 两会期间官方披露，AI 正成为高质量经济发展的强大驱动力。[→ People's Daily](http://en.people.cn/n3/2026/0305/c90000-20432288.html)
+
 ---
 
 ## 🔥 极客社区热门
@@ -75,6 +89,14 @@ tags:
 4. **🧠 "Qwen 有大动作" + Qwen3.5 微调指南** — Simon Willison 发文获 498 点，Unsloth 发布 Qwen3.5 微调文档 260 点。开源 LLM 生态持续升温。[→ simonwillison.net](https://simonwillison.net)
 
 5. **🌐 Ladybird 浏览器用 AI 辅助将 C++ 迁移至 Rust** — 零回归完成语言迁移，HN 和 Lobste.rs 同步热议。技术上非常大胆的尝试。[→ Prism News](https://www.prismnews.com/news/ladybird-browser-adopts-rust-to-replace-c-with-ai-help)
+
+> 📌 晚间更新
+
+6. **🔧 Google Workspace CLI 开源** — HN 675 点、221 条评论。Google 官方发布 Workspace 命令行工具，支持 Gmail/Calendar/Drive/Sheets 等操作，开发者社区热度很高。[→ GitHub](https://github.com/googleworkspace/cli)
+
+7. **🎮 Newgrounds 创始人宣布打造新一代 Flash** — HN 577 点、181 条评论。Flash 精神续作，引发一波怀旧与技术讨论。[→ Newgrounds](https://bill.newgrounds.com/news/post/1607118)
+
+8. **📝 "The L in LLM Stands for Lying"** — HN 301 点、175 条评论。一篇犀利的 LLM 批评文章引发热议，讨论大模型的幻觉与可信度问题。[→ acko.net](https://acko.net/blog/the-l-in-llm-stands-for-lying/)
 
 ---
 
