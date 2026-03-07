@@ -42,6 +42,10 @@ tags:
 
 5. **📊 伯克希尔新时代** —— 阿贝尔接棒巴菲特首度执笔 2026 年致股东公开信，标志着伯克希尔·哈撒韦进入新时代。[→ 新浪财经](https://finance.sina.com.cn/headline/2026-03-01/doc-inhpnwmf5290439.shtml)
 
+> 📌 晚间更新
+
+6. **✈️ 伊朗战事第七天，航空业重创** —— 美以对伊军事行动持续，航空股大跌：Wizz Air 取消多条中东航线至 3/15 并预警 €5000 万利润损失（-11.3%），easyJet -5%，IAG -2%。美债收益率连涨四日，高油价令美联储降息前景蒙阴。[→ The Guardian](https://www.theguardian.com/world/2026/mar/05/stock-market-falls-resume-as-us-israel-war-with-iran-drives-up-oil-and-gas-prices)
+
 ---
 
 ## 🤖 AI 动态
@@ -55,6 +59,14 @@ tags:
 4. **🤖 AI Agent 将成为 2026 企业 AI 最广泛应用** —— AI Agent 正成为企业 AI 采用的下一个重大阶段，实现自主决策、工作流自动化和业务系统深度集成。[→ Robotics & Automation News](https://roboticsandautomationnews.com/2026/03/06/what-will-be-the-most-widely-adopted-ai-solution-in-2026/99304/)
 
 5. **🧪 Ai2 发布 Olmo Hybrid** —— 全新 7B 参数开源模型，结合 Transformer 注意力机制与线性循环层，数据效率提升 2 倍。[→ Radical Data Science](https://radicaldatascience.wordpress.com/2026/03/05/ai-news-briefs-bulletin-board-for-march-2026/)
+
+> 📌 晚间更新
+
+6. **⚔️ 美政府拟定严格 AI 合同规则，Anthropic 被五角大楼列为"供应链风险"** —— 特朗普政府起草新规，要求 AI 公司允许模型用于"任何合法用途"。五角大楼正式将 Anthropic 标记为供应链风险，禁止其技术用于军事合同，双方围绕 AI 安全护栏的对峙升级。[→ Reuters](https://www.reuters.com/business/media-telecom/us-draws-up-strict-new-ai-guidelines-amid-anthropic-clash-ft-reports-2026-03-07/)
+
+7. **🧠 中国脑机接口技术 3-5 年内有望实用化** —— 顶尖 BCI 专家表示，随着产品成熟，中国脑机接口技术有望在 3-5 年内进入公共实际应用阶段，北京正加速追赶 Neuralink 等美国初创企业。[→ Reuters](https://www.reuters.com/technology/)
+
+8. **🎬 Netflix 收购本·阿弗莱克 AI 影视科技公司 InterPositive** —— Netflix 罕见出手收购阿弗莱克创立的 AI 电影制作工具公司，阿弗莱克将担任 Netflix 高级顾问。该公司帮助电影人构建个性化 AI 模型处理耗时的制作细节。[→ Variety](https://variety.com/2026/film/news/netflix-acquires-ben-affleck-ai-filmmaking-startup-interpositive-1236679498/)
 
 ---
 
@@ -79,6 +91,24 @@ tags:
 5. **📊 "喜欢 synergizing paradigms 的员工可能不擅长工作"** `HN · 499 points · Cornell`
    康奈尔大学研究发现，热衷使用企业黑话的人工作表现可能更差——说人话真的很重要！
    [→ 原帖](https://news.cornell.edu/stories/2026/03/workers-who-love-synergizing-paradigms-might-be-bad-their-jobs)
+
+> 📌 晚间更新
+
+6. **🌍 全球变暖显著加速** `HN · 1083 points`
+   最新研究论文引发热议，数据显示全球变暖速率正在显著加速，评论区讨论激烈（1076 条评论）。
+   [→ 原帖](https://news.ycombinator.com/item?id=47275088)
+
+7. **🔒 System76 发文反对年龄验证法案** `HN · 825 points`
+   Linux 硬件厂商 System76 公开反对政府推行的网络年龄验证法案，认为这是对隐私和自由的威胁。
+   [→ 原帖](https://news.ycombinator.com/item?id=47270784)
+
+8. **⚔️ Anthropic 发文：我们与国防部的立场** `HN · 618 points`
+   Anthropic 官方博文详述与五角大楼（现"战争部"）的分歧始末，围绕 AI 军事使用的安全底线问题，769 条评论激烈讨论。
+   [→ 原帖](https://news.ycombinator.com/item?id=47269263)
+
+9. **🎨 "这段 CSS 证明我是人类"** `HN · 289 points`
+   一篇有趣的博文，用纯 CSS 特性来证明浏览者是人而非机器人，创意十足。
+   [→ 原帖](https://news.ycombinator.com/item?id=47281593)
 
 ---
 
