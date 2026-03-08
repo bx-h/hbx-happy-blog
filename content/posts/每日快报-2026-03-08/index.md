@@ -48,6 +48,16 @@ tags:
 
 5. **氢能产业步入快车道** — 中信证券预计2026年氢能在氢电耦合、工业减碳领域将实现突破，产业有望进入"降本—放量"良性循环。[新浪财经](https://finance.sina.com.cn/stock/y/2026-03-04/doc-inhpunau6982781.shtml)
 
+> 📌 晚间更新
+
+6. **证监会吴清两会记者会：深化创业板改革方案即将发布** — 增设更包容的上市标准，支持新型消费、现代服务业等创新企业；优化再融资审核注册机制，推出储架发行、完善锁价定增。[新浪财经](https://finance.sina.com.cn/wm/2026-03-08/doc-inhqhish0753864.shtml)
+
+7. **央行潘功胜：2026年将灵活运用降准降息** — 适度宽松货币政策，逐步淡化数量型中介目标，未来更多发挥利率调控作用。明确表示中国无意通过汇率贬值获取贸易竞争优势。[腾讯新闻](https://news.qq.com/rain/a/20260307A021ZN00)
+
+8. **央行连续增持黄金，国内金饰价逼近1600元/克** — 央行持续买入黄金储备，平安证券认为短期地缘风险推升金价，长期美元信用走弱支撑黄金牛市。[新浪财经](https://finance.sina.com.cn/stock/bxjj/2026-03-08/doc-inhqfsuv1031134.shtml)
+
+9. **美国拟对AI芯片出口实施新审批制度** — 商务部考虑要求所有海外AI芯片购买需获政府批准，外国买方或需在美投资。新规可能重塑全球半导体供应链格局，Nvidia股价承压。[The AI Insider](https://theaiinsider.tech/2026/03/07/u-s-regulators-consider-new-approval-rules-for-global-exports-of-ai-chips/)
+
 ---
 
 ## 🤖 AI 动态
@@ -62,6 +72,12 @@ tags:
 
 5. **美国出台严格AI准则，与Anthropic产生冲突** — 美国政府正在制定更严格的AI监管框架，同时多州推进AI生成内容问责法案。[Reuters](https://www.reuters.com/technology/) / [Transparency Coalition](https://www.transparencycoalition.ai/news/ai-legislative-update-march6-2026)
 
+> 📌 晚间更新
+
+6. **OpenAI 机器人负责人因五角大楼协议辞职** — Caitlin Kalinowski 宣布辞去 OpenAI 机器人团队负责人职务，称对公司与五角大楼的AI合作协议存在原则性分歧，担忧监控和自主武器风险。OpenAI 回应称协议设有"红线"：不进行国内监控、不开发自主武器。[Reuters](https://www.reuters.com/business/openai-robotics-head-resigns-after-deal-with-pentagon-2026-03-07/) / [TechCrunch](https://techcrunch.com/2026/03/07/openai-robotics-lead-caitlin-kalinowski-quits-in-response-to-pentagon-deal/)
+
+7. **Qwen 3.5 发布，社区热议本地部署** — 通义千问最新模型 Qwen 3.5 发布，Unsloth 社区发布本地运行教程，HackerNews 获236点热度。[Unsloth](https://unsloth.ai/docs/models/qwen3.5)
+
 ---
 
 ## 🔥 极客社区热门
@@ -75,6 +91,18 @@ tags:
 4. **UUID 包即将进入 Go 标准库** 🔥344点 — Go 社区期待已久的 UUID 原生支持终于要落地了，开发者讨论这对依赖管理和生态的影响。[GitHub Issue](https://github.com/golang/go/issues/62026)
 
 5. **朝鲜黑客发布26个恶意npm包** — 通过 Pastebin 隐藏 C2 服务器，部署跨平台 RAT。开发者需警惕供应链攻击风险。[The Hacker News](https://thehackernews.com/2026/03/north-korean-hackers-publish-26-npm.html)
+
+> 📌 晚间更新
+
+6. **CasNum — 基于CAS的无锁数值库** 🔥303点 — 一个无锁数值计算库，在 HackerNews 引发热烈讨论。[GitHub](https://github.com/0x0mer/CasNum)
+
+7. **Cloud VM Benchmarks 2026** 🔥274点 — 全面的云VM性能与性价比对比测试，覆盖主流云厂商，124条评论。[ecuadors.net](https://devblog.ecuadors.net/cloud-vm-benchmarks-2026-performance-price-1i1m.html)
+
+8. **Apple 512GB Mac Studio 悄然下架** 🔥77点 — Ars Technica 报道苹果悄悄移除了512GB内存版Mac Studio，被视为对当前RAM短缺的默认。[Ars Technica](https://arstechnica.com/gadgets/2026/03/apples-512gb-mac-studio-vanishes-a-quiet-acknowledgement-of-the-ram-shortage/)
+
+9. **SWE-CI：评估AI Agent维护代码库的能力** 🔥69点 — 新论文提出通过CI流程评估AI编程Agent在真实代码库维护中的表现。[arXiv](https://arxiv.org/abs/2603.03823)
+
+10. **有人把Linux移植到了PS5并变成Steam Machine** — 开发者theflow在推特宣布成功在PS5上运行Linux并改造成Steam游戏机。[HackerNews](https://news.ycombinator.com/item?id=47296849)
 
 ---
 
