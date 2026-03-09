@@ -42,6 +42,14 @@ tags:
 
 5. **欧洲股市创 4 月以来最大单周跌幅，能源股逆势走强** — 地缘局势升级带动能源板块，A 股短期进入高波动窗口，但韧性仍在。[→ 详情](https://finance.sina.com.cn/headline/2026-03-07/doc-inhqccfx5556509.shtml)
 
+> 📌 晚间更新
+
+6. **全球股市周一暴跌，油价飙至 $120** — WTI 原油触及 120 美元/桶（较早间 90 美元大幅飙升），道指期货暴跌 860 点（-1.82%），标普 -1.61%，纳指 -2%，VIX 恐慌指数飙升 27% 至 24 附近。[→ 详情](https://stockmarketwatch.com/live/stock-market-today/)
+
+7. **韩国 KOSPI 暴跌 8%，触发熔断机制** — 3 月第二次触发熔断，交易暂停 20 分钟，地缘政治冲击波蔓延至亚太市场。[→ 详情](https://www.whalesbook.com/news/English/economy/KOSPI-Plunges-8percent-Circuit-Breakers-Triggered-Amidst-Geopolitical-Shock/69ae34b76431e3e2859c255b)
+
+8. **本周关键数据：CPI/PPI/PCE 密集发布** — 周三 CPI、周四 PPI、周五核心 PCE，市场紧盯油价冲击是否传导至通胀，3/18 美联储利率决议前的最后窗口，降息预期大幅降温。[→ 详情](https://stockmarketwatch.com/live/stock-market-today/)
+
 ---
 
 ## 🤖 AI 动态
@@ -56,6 +64,14 @@ tags:
 
 5. **联合国：AI 正在深刻重塑工作条件** — 从外卖骑手被算法驱使，到内容审核员每天面对暴力内容训练 AI，新技术对劳动者的影响日益凸显。[→ 详情](https://news.un.org/en/story/2026/03/1167075)
 
+> 📌 晚间更新
+
+6. **Musk 再预言：2026 年底将实现"人类级 AI"** — 在 X 上回应用户讨论时表示 AGI 年底前可达成，并暗示 Tesla 或将率先在人形机器人领域实现 AGI。[→ 详情](https://logos-pres.md/en/news/new-high-profile-prediction-from-ilon-musk-by-the-end-of-2026-there-will-be-human-like-ai/)
+
+7. **美国拟定严格 AI 新规，与 Anthropic 对峙** — 特朗普政府起草民用 AI 合同规则，要求 AI 公司授予政府"任何合法用途"的不可撤销许可，源于五角大楼与 Anthropic 的分歧。[→ 详情](https://www.reuters.com/business/media-telecom/us-draws-up-strict-new-ai-guidelines-amid-anthropic-clash-ft-reports-2026-03-07/)
+
+8. **微软 RPO 飙升至 $6250 亿，AI 云需求强劲** — 在全球股灾中微软逆势展现韧性，剩余履约义务达 6250 亿美元，长期 AI 云服务需求信号强烈；Nvidia GTC 大会 3/16 即将召开。[→ 详情](https://stockmarketwatch.com/live/stock-market-today/)
+
 ---
 
 ## 🔥 极客社区热门
@@ -69,6 +85,16 @@ tags:
 4. **📝 LibreOffice Writer 现已支持 Markdown** (HackerNews, 271 points) — 开源办公套件的重要里程碑，开发者终于可以在 Writer 中直接编辑 Markdown 了。[→ 原文](https://documentfoundation.org)
 
 5. **📖 LLM Writing Tropes** (HackerNews, 317 points) — 一份详尽的 LLM 写作套路清单（tropes.fyi），帮你识别 AI 生成文本的常见模式，非常有趣。[→ 原文](https://tropes.fyi)
+
+> 📌 晚间更新
+
+6. **🛡️ Agent Safehouse — macOS 本地 AI Agent 沙箱** (HackerNews, 649 points) — 为本地运行的 AI Agent 提供原生 macOS 沙箱隔离，今日 HN 最热帖，安全话题引发热议。[→ 原文](https://agent-safehouse.dev/)
+
+7. **📖 FrameBook** (HackerNews, 463 points) — 一个有趣的创意项目，引发社区大量讨论。[→ 原文](https://fb.edoo.gg)
+
+8. **⚖️ 美国上诉法院：TOS 可通过邮件更新，继续使用即默认同意** (HackerNews, 276 points) — 具有深远影响的法律裁决，用户权益与服务条款的边界再引争议。[→ 原文](https://cdn.ca9.uscourts.gov/datastore/memoranda/2026/03/03/25-403.pdf)
+
+9. **🍀 爱尔兰关闭最后一座燃煤电厂，成欧洲第 15 个无煤国** (HackerNews, 205 points) — 能源转型里程碑。[→ 原文](https://www.pv-magazine.com/2025/06/20/ireland-coal-free-ends-coal-power-generation-moneypoint/)
 
 ---
 
