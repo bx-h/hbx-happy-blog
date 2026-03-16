@@ -49,6 +49,20 @@ tags:
 5. **3·15 晚会重磅曝光** — 网红鸡爪"漂白"、AI 大模型"投毒"问题（DeepSeek 翻车）、增高骗局等多个消费陷阱被揭露。
    👉 [新浪财经早报](https://finance.sina.cn/zaobao/app.d.html?date=20260316)
 
+> 📌 晚间更新
+
+6. **IEA 协调创纪录释放 4 亿桶石油储备** — 因伊朗战事导致霍尔木兹海峡航运几近中断，IEA 宣布各国释放约 4 亿桶战略石油储备，亚洲即时供应，美欧 3 月底开始。日本已率先启动储备释放。
+   👉 [Bloomberg](https://www.bloomberg.com/news/articles/2026-03-15/iea-says-oil-from-emergency-stocks-to-flow-immediately-in-asia) | [Al Jazeera](https://www.aljazeera.com/economy/2026/3/16/japan-begins-release-of-oil-reserves-as-iran-war-sparks-energy-crisis)
+
+7. **美对含中国在内 60 国发起"强迫劳动"301 调查** — 继 3 月 11 日"产能过剩"301 调查后，美方再次发起调查。商务部强烈回应：美方做法极具单边性、武断性和歧视性，严重扰乱国际经贸秩序。
+   👉 [新华网](https://www.news.cn/world/20260316/88f2b8bcaa01404fae54693099bc4ba3/c.html)
+
+8. **国际大宗商品剧烈波动** — 布伦特原油日内冲高至 105 美元后回落至 97 美元；现货黄金跌破 5000 美元/盎司关口（日内跌超 1%）；比特币逆势升破 73000 美元（日内涨 2.58%）。
+   👉 [新浪财经](https://finance.sina.com.cn/headline/2026-03-16/doc-inhrctqw6057491.shtml)
+
+9. **摩根大通警告：油价持续高位或致标普 500 下跌 15%** — 油价若长期维持 90 美元以上可能触发"多米诺效应"，高盛也给出温和/严峻两种下行情景。美股已进入回调区间。
+   👉 [新浪财经](https://finance.sina.com.cn/headline/2026-03-16/doc-inhrevan2627172.shtml)
+
 ---
 
 ## 🤖 AI 动态
@@ -68,6 +82,17 @@ tags:
 5. **315 曝光 AI 大模型"投毒"问题** — 实测发现部分 AI 大模型会为虚假产品背书，千问拒答但 DeepSeek 翻车，引发 AI 安全信任危机。
    👉 [新浪财经](https://finance.sina.cn/stock/ggyj/2026-03-15/detail-inhrascp9401225.d.html)
 
+> 📌 晚间更新
+
+6. **字节跳动暂停 Seedance 2.0 视频 AI 全球发布** — 因与好莱坞多家片厂的版权争议（迪士尼发出停止函指控"虚拟抢劫 IP"），ByteDance 搁置了新一代视频生成模型的海外上线计划。AI 生成内容的版权问题再次成为焦点。
+   👉 [TechCrunch](https://techcrunch.com/2026/03/15/bytedance-reportedly-pauses-global-launch-of-its-seedance-2-0-video-generator/) | [SCMP](https://www.scmp.com/tech/big-tech/article/3346654/bytedance-reportedly-suspends-launch-seedance-video-ai-model-after-copyright-disputes)
+
+7. **NVIDIA GTC 2026 正式开幕，Vera Rubin 平台亮相** — 3 万人齐聚圣何塞 SAP Center，黄仁勋主题演讲详细公布下一代 Vera Rubin AI 平台（取代 Blackwell），并宣布与 Thinking Machines Lab 达成多年战略合作，部署至少 1GW 算力。
+   👉 [NVIDIA Blog](https://blogs.nvidia.com/blog/gtc-2026-news/) | [TNW](https://thenextweb.com/news/nvidia-gtc-2026-opens-today)
+
+8. **Guardian 调查：AI 公司正变身军事承包商** — 深度调查揭露 Palantir 等 AI 公司的大语言模型技术被用于伊朗军事目标识别，AI 军事化应用引发伦理争议。
+   👉 [The Guardian](https://www.theguardian.com/us-news/ng-interactive/2026/mar/15/ai-defense-warfare-companies)
+
 ---
 
 ## 🔥 极客社区热门
@@ -86,6 +111,17 @@ tags:
 
 5. **[Reddit] Sonatype 2026 软件供应链报告** — 开源包下载量达 9.8 万亿次，漏洞管理严重滞后，供应链安全问题日益紧迫。
    👉 [Reddit](https://www.reddit.com/r/devops/comments/1r0csbc/what_does_the_sonatype_2026_state_of_the_software/)
+
+> 📌 晚间更新
+
+6. **[HN] 加拿大 C-22 法案强制元数据大规模监控** — 806 分热帖，238 条评论。法案要求运营商保留和交出用户元数据，无需搜查令即可访问，被批评为"后门监控"。
+   👉 [Hacker News](https://news.ycombinator.com/item?id=47392084) | [原文](https://www.michaelgeist.ca/2026/03/a-tale-of-two-bills-lawful-access-returns-with-changes-to-warrantless-access-but-dangerous-backdoor-surveillance-risks-remains/)
+
+7. **[HN] 一个 49MB 的网页** — 636 分热帖。开发者审计发现某新闻网站单页加载高达 49MB，引发关于 Web 臃肿化和性能优化的热烈讨论。
+   👉 [Hacker News](https://news.ycombinator.com/item?id=47390945) | [原文](https://thatshubham.com/blog/news-audit)
+
+8. **[HN] 我如何用 LLM 写软件** — 293 分热帖，237 条评论。开发者分享实战经验，讨论 LLM 辅助编程的最佳实践与局限。
+   👉 [Hacker News](https://news.ycombinator.com/item?id=47394022) | [原文](https://www.stavros.io/posts/how-i-write-software-with-llms/)
 
 ---
 
