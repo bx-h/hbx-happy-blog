@@ -43,6 +43,14 @@ tags:
 
 5. **美国SEC拟修订交易法规则** — 准备取消季度报告要求，同时修订经纪交易商报价规则，以适应不断变化的市场结构和技术发展。[Reuters](https://www.reuters.com/technology/artificial-intelligence/)
 
+> 📌 晚间更新
+
+6. **美联储FOMC会议今日开幕（3/17-18）** — 市场普遍预期利率维持 3.50%-3.75% 不变。关注焦点：最新点阵图（dot plot）、鲍威尔对中东地缘冲突推高油价后通胀前景的表态。分析师预计今年可能仅降息一次（12月），甚至全年不降息。[Kiplinger](https://www.kiplinger.com/investing/live/march-fed-meeting-2026-live-updates-and-commentary) | [CBS News](https://www.cbsnews.com/news/federal-reserve-interest-rate-decision-iran-war/)
+
+7. **Nvidia GTC 2026 主题演讲：黄仁勋预计到2027年AI芯片订单达1万亿美元** — 两小时演讲涵盖 Vera Rubin GPU/CPU 详情、首款 Groq 3 LPU（来自去年200亿美元收购的 Groq）、DLSS 5、AI Agent 平台、太空AI芯片，并宣布自动驾驶迎来"ChatGPT 时刻"。[CNBC](https://www.cnbc.com/2026/03/16/nvidia-gtc-2026-ceo-jensen-huang-keynote-blackwell-vera-rubin.html)
+
+8. **印度IT板块因AI冲击暴跌** — Nvidia GTC 发布叠加 Anthropic Claude 自动化工具的持续影响，Infosys、TCS、Wipro 等印度IT龙头跌幅达2%-6%，NIFTY IT 指数年初至今已跌25%。BBC 发问：印度3000亿美元外包产业能否挺过AI浪潮？[Times of India](https://timesofindia.indiatimes.com/business/india-business/after-anthropic-hit-infosys-tcs-other-indian-it-stocks-tank-on-nvidias-new-ai-system-news-whats-happening/articleshow/129624979.cms) | [BBC](https://www.bbc.com/news/articles/c5yrq1090p8o)
+
 ---
 
 ## 🤖 AI 动态
@@ -57,6 +65,14 @@ tags:
 
 5. **Nature：首批"AI 社会"正在形成** — 研究者正在研究 AI 智能体之间的"社会"交互行为，探索这是否是一种全新的社会学形式，还是仅仅是精密的模仿行为。[Nature](https://www.nature.com/articles/d41586-026-00070-5)
 
+> 📌 晚间更新
+
+6. **Nvidia GTC 2026 全面发布（AI 角度）** — AI 生态方面：推出 AI Agent 开发平台、与 Uber 合作推进自动驾驶（黄仁勋称"自动驾驶的 ChatGPT 时刻到来"）、发布太空专用 AI 芯片、DLSS 5 预告。Groq 3 LPU 是 Nvidia 收购 Groq 后的首款芯片，主打推理加速。[Nvidia Blog](https://blogs.nvidia.com/blog/gtc-2026-news/) | [Tom's Hardware](https://www.tomshardware.com/news/live/nvidia-gtc-2026-keynote-live-blog-jensen-huang)
+
+7. **DeepSeek V4 和腾讯混元新模型将于4月发布** — 据鲸实验室报道，两款中国大模型将同月亮相，标志中国 AI 发展节奏加速，聚焦实用化落地。[Dataconomy](https://dataconomy.com/2026/03/16/deepseek-v4-and-tencents-new-hunyuan-model-to-launch-in-april/)
+
+8. **Google 砍掉"What People Suggest"AI 搜索功能** — 该功能向用户展示来自普通网友的众包健康建议，因安全争议被下线。Google 官方称是"页面简化"，但外界普遍认为是对医疗信息准确性的担忧。[The Guardian](https://www.theguardian.com/technology/2026/mar/16/google-scraps-ai-search-feature-that-crowdsourced-amateur-medical-advice)
+
 ---
 
 ## 🔥 极客社区热门
@@ -70,6 +86,16 @@ tags:
 4. **🟠 HN | 2026 年科技裁员 3 月已达 4.5 万人** — 来自 layoffs.fyi 的数据，2023 年的裁员潮余波未散，AI 替代效应开始显现。[Hacker News](https://news.ycombinator.com/item?id=47380405)
 
 5. **🔴 Reddit | "LLM 已经能写代码了，2026年世界还需要新编程语言吗？"** — r/programming 热议。有人推出了名为「Come」的新语言，引发了关于 AI 时代编程语言存在意义的讨论。[Reddit](https://www.reddit.com/r/programming/comments/1q3igl6/is_the_world_ready_for_another_programming/)
+
+> 📌 晚间更新
+
+6. **🟠 HN | "腐败对民主国家社会信任的侵蚀大于威权国家"** — 714 points，375 条评论。来自 Frontiers in Political Science 的研究论文，引发了关于制度信任的深度讨论。[Hacker News](https://news.ycombinator.com/item?id=47397593)
+
+7. **🟠 HN | Mistral 发布 Leanstral：开源形式化证明 AI Agent** — 615 points，132 条评论。Mistral 推出专为代码可信验证和数学形式化证明设计的开源 Agent，形式化验证 + AI 的交叉方向。[Mistral](https://mistral.ai/news/leanstral)
+
+8. **🟠 HN | "Stop Sloppypasta" — 反 AI 垃圾内容运动** — 639 points，246 条评论。一个呼吁抵制 AI 生成低质内容泛滥的倡议网站，引发社区对 AI 内容质量的广泛共鸣。[stopsloppypasta.ai](https://news.ycombinator.com/item?id=47389570)
+
+9. **🟠 HN | 英国国防部消息人士警告：Palantir 在政府核心的角色威胁英国安全** — 640 points，271 条评论。数据公司 Palantir 深度嵌入英国政府系统引发国家安全担忧。[The Nerve](https://news.ycombinator.com/item?id=47397797)
 
 ---
 
