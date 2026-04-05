@@ -27,6 +27,9 @@ tags:
 - [路透：英伟达向 Marvell 投资 20 亿美元，并推进 AI 芯片合作](https://www.reuters.com/technology/nvidia-invests-2-billion-marvell-launches-ai-partnership-2026-03-31/) —— 说明 AI 芯片竞争已经从单一 GPU，延伸到互联、定制芯片和整套数据中心方案。
 - [BNN Bloomberg：甲骨文启动新一轮大规模裁员，重组成本最高或达 21 亿美元](https://www.bnnbloomberg.ca/business/2026/04/01/oracle-begins-layoffs-affecting-thousands-cnbc-reports/) —— 老牌科技公司一边砍传统业务成本，一边把资源更激进地转向 AI。
 
+> 📌 晚间更新
+- [路透：OPEC+ 原则上同意将 5 月石油产量配额上调 20.6 万桶/日](https://www.reuters.com/business/energy/opec-debates-theoretical-oil-output-hike-amid-iran-war-paralysis-sources-say-2026-04-05/) —— 这条会直接影响市场对油价和通胀预期的判断，属于今天白天值得补进来的新变量。
+
 🤖 AI 动态
 
 - [路透：OpenAI 收购科技谈话节目 TBPN](https://www.reuters.com/business/media-telecom/openai-acquires-technology-talk-show-tbpn-surprise-move-2026-04-02/) —— 这不只是内容收购，更像是在争夺开发者与企业客户注意力，AI 公司的“媒体化”趋势变得更明显。
@@ -42,6 +45,9 @@ tags:
 - **Hacker News** · [Embarrassingly simple self-distillation improves code generation](https://arxiv.org/abs/2504.00123) —— 研究味很浓，但对写代码 agent 很相关：有时候提升效果未必靠更复杂结构，简单方法也能打。
 - **Hacker News** · [Components of a Coding Agent](https://sebastianraschka.com/blog/2026/coding-agent-components.html) —— 适合关心 AI coding workflow 的人，讲的是一个“能干活的 agent”到底由哪些部分拼出来。
 - **Lobsters / Hacker News 交叉热议** · [The Cathedral, the Bazaar, and the Winchester Mystery House](https://dbreunig.com/2026/04/03/the-cathedral-the-bazaar-and-the-winchester-mystery-house.html) —— 标题就很抓人，把经典开源协作叙事重新拿出来拷问，挺适合今天这种“AI + 开源”氛围下再看一遍。
+
+> 📌 晚间更新
+- **Hacker News** · [The threat is comfortable drift toward not understanding what you're doing](https://ergosphere.blog/posts/the-machines-are-fine/) —— 今天下午讨论热度升得很快，核心提醒很扎心：工具越顺手，人越容易在高效率里慢慢失去对过程的真实理解。
 
 📖 好文推荐
 
