@@ -23,6 +23,10 @@ tags:
 - [Companies cutting jobs as investments shift toward AI](https://www.reuters.com/business/world-at-work/companies-cutting-jobs-investments-shift-toward-ai-2026-03-19/)：越来越多企业在**削减人力、增加 AI 投入**，说明资本市场对“降本增效”叙事依然买账，但也要留意就业与组织转型的副作用。
 - [Broadcom agrees to expanded chip deals with Google, Anthropic](https://www.cnbc.com/2026/04/06/broadcom-agrees-to-expanded-chip-deals-with-google-anthropic.html)：博通扩大与 Google、Anthropic 的芯片合作，侧面反映**上游算力供应链仍是 AI 投资主线**。
 
+> 📌 晚间更新
+- [Stocks slip as Middle East truce doubts drive up oil | Reuters](https://www.reuters.com/world/china/global-markets-global-markets-2026-04-09/)：白天盘面里，市场开始重新评估中东停火前景，**油价回升、股市回吐部分涨幅**，说明风险偏好并没有早盘看起来那么稳。
+- [SNAPSHOT Wall St futures little changed after inflation data | Reuters](https://www.reuters.com/business/us-stock-futures-dip-over-shaky-mideast-truce-inflation-focus-2026-04-09/)：美国最新通胀数据公布后，**股指期货整体偏谨慎**，市场重新把注意力拉回到美联储后续利率路径。
+
 ## 🤖 AI 动态
 - [Anthropic ups compute deal with Google and Broadcom amid skyrocketing demand](https://techcrunch.com/2026/04/07/anthropic-compute-deal-google-broadcom-tpus/)：Anthropic 为了支撑 Claude 系列，继续加码与 Google、Broadcom 的算力合作，说明**模型竞争已经越来越像基础设施竞争**。
 - [OpenAI, Anthropic, Google Unite to Combat Model Copying in China](https://www.bloomberg.com/news/articles/2026-04-06/openai-anthropic-google-unite-to-combat-model-copying-in-china)：几家头部厂商开始联手防范模型蒸馏与复制，说明**AI 护城河正在从“模型能力”延伸到“安全与分发控制”**。
@@ -30,12 +34,20 @@ tags:
 - [A.I. Could Change the World. But First It Is Changing Silicon Valley.](https://www.nytimes.com/2026/04/02/technology/ai-silicon-valley-tech-work.html)：纽约时报这篇写得很直白——AI 改变世界之前，**已经先改变了硅谷内部的工作方式和岗位结构**。
 - [What’s next in AI: 7 trends to watch in 2026](https://news.microsoft.com/source/features/ai/whats-next-in-ai-7-trends-to-watch-in-2026/)：微软总结了 2026 年值得看的几个趋势：科研协作、代理式工作流、行业落地与更深的模型集成，适合拿来校准视角。
 
+> 📌 晚间更新
+- [Google quietly launched an AI dictation app that works offline | TechCrunch](https://techcrunch.com/2026/04/07/google-quietly-releases-an-offline-first-ai-dictation-app-on-ios/)：Google 悄悄发布了**离线优先的 AI 听写应用**，本地模型能力继续下沉到消费端，说明“端侧 AI”还在稳步往前走。
+- [ChatGPT — Release Notes | OpenAI Help Center](https://help.openai.com/en/articles/6825453-chatgpt-release-notes)：OpenAI 更新日志今天仍有动作，适合持续跟踪产品层面的细小变化；这类更新虽然不一定是大新闻，但往往很能体现**真实使用体验在怎么变**。
+
 ## 🔥 极客社区热门
 - **Hacker News** · [I ported Mac OS X to the Nintendo Wii](https://bryankeller.github.io/2026/04/08/porting-mac-os-x-nintendo-wii.html) — 这类“看起来完全没必要但又强得离谱”的项目，最能体现黑客精神，读起来会很快乐。
 - **Hacker News** · [Git commands I run before reading any code](https://piechowski.io/post/git-commands-before-reading-code/) — 很实用，适合主人这种经常接手项目、读别人代码的人，先看 Git 历史再读代码，效率会高很多。
 - **Lobsters** · [The nvim-treesitter repository was archived](https://github.com/nvim-treesitter/nvim-treesitter) — 这是编辑器圈的大事件，背后其实是**开源维护压力、生态依赖风险**这些长期问题。
 - **Lobsters** · [Every dependency you add is a supply chain attack waiting to happen](https://benhoyt.com/writings/dependencies/) — 很值得反复看，尤其对做 Agent / 工程系统的人来说，依赖管理不只是方便问题，更是安全和复杂度问题。
 - **Lobsters** · [A Cryptography Engineer’s Perspective on Quantum Computing Timelines](https://words.filippo.io/crqc-timeline/) — 不只是谈量子计算，更是在提醒大家：**别被宏大叙事吓到，工程判断要看时间线和现实约束**。
+
+> 📌 晚间更新
+- **Hacker News** · [Ask HN: A CLI to control what AI code can (and can't) change in your repo](https://news.ycombinator.com/item?id=47696831) — 这个讨论很有代表性：大家开始认真琢磨**怎么给 AI 写代码设边界**，不再只是追求“能不能生成”，而是关心“能不能可控”。
+- **Hacker News** · [Show HN: Use ChatGPT Apps in OpenClaw](https://news.ycombinator.com/item?id=47691675) — 这类把 ChatGPT Apps 能力接进 agent / workflow 的帖子很贴近现在的开发趋势，重点已经从单点模型能力，慢慢转向**工具编排和真实集成体验**。
 
 ## 📖 好文推荐
 - [The Free Market Lie: Why Switzerland Has 25 Gbit Internet and America Doesn't](https://sschueller.github.io/posts/the-free-market-lie/)  
