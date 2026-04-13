@@ -27,6 +27,11 @@ tags:
 - [**美国服务业增速放缓，但企业投入价格创多年高位，通胀担忧再起**](https://www.reuters.com/business/finance/global-markets-view-usa-2026-04-07/) —— 这对全球风险资产不是个特别轻松的信号，利率预期可能继续摇摆。
 - [**TSMC 一季度营收达新高，继续受 AI 芯片需求拉动**](https://www.reuters.com/business/take-five/global-markets-themes-2026-04-02/) —— 半导体链条仍然是今年全球科技资本开支的主轴之一。
 
+> 📌 晚间更新
+
+- [**TSMC 预期将录得连续第四个季度创纪录利润，净利或同比大增 50%**](https://www.reuters.com/world/asia-pacific/tsmc-likely-book-fourth-straight-quarter-record-profit-on-insatiable-ai-demand-2026-04-13/) —— 这比早上“营收创新高”的信号更进一步，说明 AI 芯片需求已经开始更明确地兑现到利润端。
+- [**路透关注特朗普关税筹资方案面临最高法院挑战，若改为向消费者返现可能推高赤字与通胀**](https://www.reuters.com/business/tariffs/) —— 这条更像是晚间的新变量：关税不只是贸易议题，还可能重新扰动美国通胀与财政预期。
+
 ## 🤖 AI 动态
 
 - [**OpenAI 披露一起涉及第三方工具的安全问题，并称用户数据未被访问**](https://www.reuters.com/technology/artificial-intelligence/) —— AI 工具生态进入“连接一切”阶段后，外围集成安全会越来越关键。
@@ -35,6 +40,11 @@ tags:
 - [**TechCrunch 更新 AI 术语指南，从 AGI 到 AI Agent 做了一次系统梳理**](https://techcrunch.com/2026/04/12/artificial-intelligence-definition-glossary-hallucinations-guide-to-common-ai-terms/) —— 对普通读者和跨团队沟通都很友好。
 - [**Reuters 关注 OpenAI 与 Anthropic 的营收竞速及其潜在 IPO 影响**](https://www.reuters.com/technology/artificial-intelligence/openai-versus-anthropic-what-revenue-race-means-their-ipos-2026-04-08/) —— AI 竞争已经从模型榜单延伸到收入、资本市场和基础设施合作。
 
+> 📌 晚间更新
+
+- [**英国监管机构据 FT 报道正加紧评估 Anthropic 最新模型的风险**](https://www.reuters.com/technology/artificial-intelligence/) —— 晚上更值得关注的不是新模型数量，而是监管跟进速度开始明显加快，说明前沿模型已经进入“能力发布—监管评估”更紧耦合的阶段。
+- [**The Verge 讨论 AI coding wars 升温：OpenAI、Anthropic、Google 都在把“编码”视作 AI 超级应用核心入口**](https://www.theverge.com/column/910019/ai-coding-wars-openai-google-anthropic) —— 这算是对白天零散动态的一个新总结：竞争焦点正在从单一模型能力，转向“谁能用 coding 把用户留在自己的产品生态里”。
+
 ## 🔥 极客社区热门
 
 - **Hacker News**：[OpenCode – Open source AI coding agent](https://news.ycombinator.com/item?id=47460525) —— 评论区围绕高频发布、资源占用和默认云端行为展开了很实在的工程讨论。
@@ -42,6 +52,12 @@ tags:
 - **Lobsters**：[Eight years of wanting, three months of building with AI](https://lobste.rs/s/gpqkcx/eight_years_wanting_three_months) —— 独立开发者会很有共鸣：AI 未必替代判断力，但确实在压缩原型期。
 - **Dev.to**：[We Studied Claude Code's Source. Here's How Anthropic's AI Actually Remembers — And Why It's Broken.](https://dev.to/mkdelta221/we-studied-claude-codes-source-heres-how-anthropics-ai-actually-remembers-and-why-its-broken-7e7) —— “AI 编码代理的记忆系统怎么设计”这个话题本身就很值得关注。
 - **Dev.to**：[What is Actually Happening in AI Right Now, March 2026 Edition](https://dev.to/aibughunter/ai-trends-developers-cant-ignore-right-now-2d5h) —— 把 MCP、Agent 可观测性、AI 产品化这些碎片信息串起来了，适合快速扫一遍行业脉络。
+
+> 📌 晚间更新
+
+- **Hacker News**：[Android now stops you sharing your location in photos](https://news.ycombinator.com/news) —— 今天 HN 晚上新冒头的讨论偏实用安全向，核心是 Android 开始默认减少照片位置信息外泄，大家讨论点集中在隐私保护和默认设置设计。
+- **Hacker News**：[Exploiting the most prominent AI agent benchmarks](https://news.ycombinator.com/news) —— 这条和早上的社区热点不同，晚上更偏研究/评测反思：大家开始认真质疑热门 AI agent benchmark 是否容易被“刷分”或误导。
+- **Lobsters**：[Did you notice the command error exit in the shell?](https://lobste.rs/) —— 这条是今天 Lobsters 上比较有工程味的新讨论，围绕 shell 命令错误退出、脚本健壮性和调试习惯展开，挺适合开发者晚上补一眼。
 
 ## 📖 好文推荐
 
