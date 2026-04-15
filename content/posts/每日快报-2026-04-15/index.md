@@ -22,7 +22,10 @@ tags:
 - [新浪财经要闻TOP10：霍尔木兹海峡与伊朗港口封锁风险持续扰动全球市场](https://finance.sina.com.cn/headline/2026-04-13/doc-inhukeeu5537381.shtml) —— 地缘风险仍然是油价、航运与全球资本市场的重要变量。
 - [Q1社融规模增量超14万亿元，金融支持重点领域力度加大](https://finance.sina.com.cn/) —— 总量层面的融资修复，意味着宽信用仍在继续发力，对实体投资与风险偏好都有支撑。
 - [截至2026年3月末，我国外汇储备规模为33421亿美元](http://news.10jqka.com.cn/) —— 外储数据仍是观察人民币汇率稳定性与跨境资金预期的重要窗口。
-- [铜钴等资源品景气延续，相关上市公司业绩预增引发市场关注](https://www.stcn.com/) —— 资源与上游材料板块的盈利修复，仍是今年顺周期交易的重要主线之一。
+- [铜铴等资源品景气延续，相关上市公司业绩预增引发市场关注](https://www.stcn.com/) —— 资源与上游材料板块的盈利修复，仍是今年顺周期交易的重要主线之一。
+> 📌 晚间更新
+- [Asian shares scale six-week peak on hopes for US-Iran peace talks](https://www.reuters.com/world/china/global-markets-global-markets-2026-04-15/) —— 今天白天新增的市场主线更偏“风险偏好修复”：谈判预期推动亚洲股市走强、油价回落。
+- [Chip systems supplier Aixtron lifts 2026 sales outlook, shares jump](https://www.reuters.com/business/chip-systems-supplier-aixtron-lifts-2026-sales-outlook-shares-jump-2026-04-15/) —— 半导体设备商上调全年指引，给硬科技与算力基础设施景气度再添一个侧面验证。
 
 ## 🤖 AI 动态
 - [麦肯锡预测：仅需15至25年，AI即可实现广泛生产力提升](https://www.chinanews.com.cn/cj/2026/04-13/10603159.shtml) —— 核心不是“AI会不会来”，而是企业能不能跨过“试点陷阱”，把AI真正做进流程。
@@ -30,6 +33,8 @@ tags:
 - [中国科学院推进“AI+学科体系”建设，构建人工智能学科新框架](https://www.chinanews.com.cn/cul/2026/04-13/10602963.shtml) —— AI正在从工具升级为学科方法论，对科研和教育体系都会产生长期影响。
 - [CounterPoint称2026年将成Robotaxi关键拐点，中国车队部署规模领先](https://finance.sina.com.cn/tech/digi/2026-04-14/doc-inhummyn4232820.shtml) —— 自动驾驶正在从“技术展示”慢慢转向“规模化运营”的临界阶段。
 - [AI让大模型幻觉与谣言传播问题再次进入公众视野](https://www.stcn.com/article/detail/3745795.html) —— 越是“说得太完整太笃定”的内容，越值得顺手核一下原文来源。
+> 📌 晚间更新
+- [Anthropic 推出 Project Glasswing，聚焦 AI 时代关键软件与网络安全防护](https://www.anthropic.com/glasswing) —— 今天新增里比较值得补的一条：行业关注点正在从“模型能力”延伸到“关键系统该如何防守”。
 
 ## 🔥 极客社区热门
 - **Lobsters**：[48 hours ago lobste.rs surpassed 20,000 users](https://lobste.rs/top/1w) —— 高质量技术讨论社区依然在增长，说明深度讨论的价值没有过时。
@@ -37,6 +42,8 @@ tags:
 - **Lobsters**：[GitHub Stacked PRs](https://lobste.rs/top/1w) —— 讨论更适合大团队协作的 PR 工作流，也和 AI 辅助编码时代的小步提交趋势很搭。
 - **Dev.to**：[What 100 Trending GitHub Projects Tell Us About Where AI Is Actually Going](https://dev.to/ji_ai/what-100-trending-github-projects-tell-us-about-where-ai-is-actually-going-4977) —— 从 100 个热门项目里总结 AI 正在从 chatbot 走向 agent、从云走向本地。
 - **Reddit / r/programming**：[Harvard study: Open source has an economic value of 8.8 trillion dollars](https://www.reddit.com/r/programming/comments/1jg9y1v/harvard_study_open_source_has_an_economic_value/) —— 开源的“基础设施价值”被越来越多主流研究正视，很值得开发者关注。
+> 📌 晚间更新
+- **Reuters / 硬科技观察**：[Chip systems supplier Aixtron lifts 2026 sales outlook, shares jump](https://www.reuters.com/business/chip-systems-supplier-aixtron-lifts-2026-sales-outlook-shares-jump-2026-04-15/) —— 半导体设备公司上调全年指引，侧面说明硬科技与算力基础设施方向今天还有新增热度。
 
 ## 📖 好文推荐
 - [CES 2026价值启示录：十个关键场景解码产业未来](https://www.36kr.com/p/3637253824562182)
