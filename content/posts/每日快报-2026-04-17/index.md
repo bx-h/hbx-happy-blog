@@ -38,6 +38,19 @@ tags:
 - **Reddit / r/selfhosted**：[A definitive list of open source](https://www.reddit.com/r/selfhosted/comments/1j6kz8p/a_definitive_list_of_open_source/) —— 自托管和开源爱好者会喜欢，适合挖新工具、补自己的软件清单。
 - **Dev.to**：[What 100 Trending GitHub Projects Tell Us About Where AI Is Actually Going](https://dev.to/ji_ai/what-100-trending-github-projects-tell-us-about-where-ai-is-actually-going-4977) —— 从 100 个 GitHub 热门项目里拆出 AI 的真实趋势，尤其适合做方向判断，不只是看热闹。
 
+## 🔥 极客社区热门
+- **Hacker News**：[GitHub Stacked PRs](https://news.ycombinator.com/item?id=47757495) —— 讨论为什么分层 PR 能显著改善大型功能开发和代码评审体验，对长期项目很实用。
+- **Lobsters**：[Retrofitting JIT Compilers into C Interpreters](https://news.ycombinator.com/item?id=47777897) —— 很硬核的编译器/解释器文章，适合喜欢底层实现和性能优化的人看。
+- **Lobsters**：[SQLite 3.53.0](https://lobste.rs/top/1w) —— SQLite 每次更新都值得看，生态稳定又实用，很多人爱它就是因为“小而强”。
+- **Reddit / r/selfhosted**：[A definitive list of open source](https://www.reddit.com/r/selfhosted/comments/1j6kz8p/a_definitive_list_of_open_source/) —— 自托管和开源爱好者会喜欢，适合挖新工具、补自己的软件清单。
+- **Dev.to**：[What 100 Trending GitHub Projects Tell Us About Where AI Is Actually Going](https://dev.to/ji_ai/what-100-trending-github-projects-tell-us-about-where-ai-is-actually-going-4977) —— 从 100 个 GitHub 热门项目里拆出 AI 的真实趋势，尤其适合做方向判断，不只是看热闹。
+
+> 📌 晚间更新
+- **AI 动态补充**：[OpenAI’s big Codex update is a direct shot at Claude Code](https://www.theverge.com/ai-artificial-intelligence/913034/openai-codex-updates-use-macos) —— OpenAI 给 Codex 加上了更强的代理执行能力：可在 macOS 上操作桌面应用、并行运行多个 agent、支持图像生成与上下文记忆，还能安排未来任务继续执行。说明 AI 编程助手正在从“会写代码”继续走向“会代办工作”。
+- **AI 动态补充**：[Introducing Claude Opus 4.7](https://www.anthropic.com/news/claude-opus-4-7) —— Anthropic 正式发布 Claude Opus 4.7，重点强化复杂软件工程、长任务一致性和视觉能力，同时加入更明确的高风险网络安全请求拦截机制，体现出“更强模型 + 更强安全护栏”在同步推进。
+- **极客社区补充**：[Launch HN: Kampala (YC W26) – Reverse-Engineer Apps into APIs](https://news.ycombinator.com/item?id=47794514) —— 一个新项目主打把现有网站、移动端、桌面端工作流逆向成 API，试图绕开脆弱的浏览器自动化。这种“给老系统补 API”的思路，对工程团队挺有启发。
+- **极客社区补充**：[Ask HN: Who is using OpenClaw?](https://news.ycombinator.com/item?id=47783940) —— HN 上有人讨论 OpenClaw 的实际使用方式，焦点在于把记忆放进可读、可编辑、可迁移的本地知识库/版本控制体系里，而不是被单一平台锁定。对关心 agent memory 和工作流可迁移性的人来说很有参考价值。
+
 ## 📖 好文推荐
 - [Trust and technology: how digital confidence shapes global economic performance and sustainable development](https://www.nature.com/articles/s41599-026-06970-1)
 
