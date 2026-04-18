@@ -58,5 +58,73 @@
 })();
 </script>
     {{- end -}}
+  {{- else if eq $provider "giscus" -}}
+    {{- $cfg := $comments.giscus -}}
+    {{- $repo := default "" $cfg.repo -}}
+    {{- $repoID := default "" $cfg.repoid -}}
+    {{- $category := default "" $cfg.category -}}
+    {{- $categoryID := default "" $cfg.categoryid -}}
+    {{- if and $repo $repoID $category $categoryID -}}
+<section class="hx-comments" aria-labelledby="comments-title">
+  <div class="hx-comments-head">
+    <h2 id="comments-title">评论</h2>
+    <p>欢迎留言交流，我会在 GitHub Discussions 里逐条回复你。</p>
+  </div>
+
+  <div id="hx-comments"></div>
+</section>
+
+<script>
+(function () {
+  var container = document.getElementById('hx-comments');
+  if (!container || container.dataset.loaded === 'true') return;
+
+  function currentCommentTheme() {
+    return document.documentElement.getAttribute('data-theme') === 'dark'
+      ? '{{ default "dark" $cfg.themedark }}'
+      : '{{ default "light" $cfg.themelight }}';
+  }
+
+  function syncCommentTheme() {
+    var frame = document.querySelector('iframe.giscus-frame');
+    if (!frame || !frame.contentWindow) return;
+
+    frame.contentWindow.postMessage(
+      { giscus: { setConfig: { theme: currentCommentTheme() } } },
+      'https://giscus.app'
+    );
+  }
+
+  var script = document.createElement('script');
+  script.src = 'https://giscus.app/client.js';
+  script.async = true;
+  script.crossOrigin = 'anonymous';
+  script.setAttribute('data-repo', '{{ $repo }}');
+  script.setAttribute('data-repo-id', '{{ $repoID }}');
+  script.setAttribute('data-category', '{{ $category }}');
+  script.setAttribute('data-category-id', '{{ $categoryID }}');
+  script.setAttribute('data-mapping', '{{ default "pathname" $cfg.mapping }}');
+  script.setAttribute('data-strict', '{{ default "1" $cfg.strict }}');
+  script.setAttribute('data-reactions-enabled', '{{ default "0" $cfg.reactionsenabled }}');
+  script.setAttribute('data-emit-metadata', '{{ default "0" $cfg.emitmetadata }}');
+  script.setAttribute('data-input-position', '{{ default "bottom" $cfg.inputposition }}');
+  script.setAttribute('data-theme', currentCommentTheme());
+  script.setAttribute('data-lang', '{{ default "zh-CN" $cfg.lang }}');
+  {{- with $cfg.loading }}
+  script.setAttribute('data-loading', '{{ . }}');
+  {{- end }}
+  container.appendChild(script);
+  container.dataset.loaded = 'true';
+
+  window.addEventListener('hx-theme-change', syncCommentTheme);
+
+  var observer = new MutationObserver(syncCommentTheme);
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['data-theme']
+  });
+})();
+</script>
+    {{- end -}}
   {{- end -}}
 {{- end -}}

@@ -63,13 +63,27 @@ params:
   # 评论系统
   comments:
     enabled: true
-    provider: "utterances"
+    provider: "giscus"
     utterances:
       repo: "bx-h/hbx-happy-blog"
       issueTerm: "pathname"
       label: "comment"
       themeLight: "github-light"
       themeDark: "github-dark"
+    giscus:
+      repo: "bx-h/hbx-happy-blog"
+      repoId: "R_kgDOQOdJFg"
+      category: "Announcements"
+      categoryId: "DIC_kwDOQOdJFs4C7H8A"
+      mapping: "pathname"
+      strict: "0"
+      reactionsEnabled: "1"
+      emitMetadata: "1"
+      inputPosition: "top"
+      loading: "lazy"
+      lang: "zh-CN"
+      themeLight: "light"
+      themeDark: "dark"
 
 # 7. Markdown 渲染器 (允许不安全的 HTML，如果你需要在 .md 里写)
 markup:
