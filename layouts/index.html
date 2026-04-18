@@ -1,5 +1,8 @@
 {{ define "main" }}
 
+{{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
+{{ $sortedPages := $pages.ByDate.Reverse }}
+
 <section class="anim-up" style="max-width:64rem;margin:0 auto;padding:10rem 1.5rem 0;position:relative;z-index:10;">
   <h1 style="font-family:'Noto Serif SC',serif;font-size:clamp(2.5rem,6vw,4.2rem);font-weight:600;letter-spacing:-0.02em;line-height:1.15;color:var(--hx-text-strong);margin:0 0 1.5rem;">
     做事锋利，<br>
@@ -9,7 +12,7 @@
     积极思考，天天开心，吃好睡好！☀️
   </p>
   <div style="display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;">
-    <a href="#articles" style="display:inline-flex;align-items:center;gap:0.5rem;color:var(--hx-text-strong);font-weight:500;font-size:0.95rem;text-decoration:none;padding-bottom:0.25rem;border-bottom:1px solid var(--hx-dot);transition:border-color 0.3s;" onmouseover="this.style.borderColor='var(--hx-text-strong)'" onmouseout="this.style.borderColor='var(--hx-dot)'">
+    <a href="{{ with first 1 $sortedPages }}{{ (index . 0).RelPermalink }}{{ else }}#articles{{ end }}" style="display:inline-flex;align-items:center;gap:0.5rem;color:var(--hx-text-strong);font-weight:500;font-size:0.95rem;text-decoration:none;padding-bottom:0.25rem;border-bottom:1px solid var(--hx-dot);transition:border-color 0.3s;" onmouseover="this.style.borderColor='var(--hx-text-strong)'" onmouseout="this.style.borderColor='var(--hx-dot)'">
       阅读最新文章
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7v10"/></svg>
     </a>
@@ -27,8 +30,7 @@
 <div style="height:6rem;"></div>
 
 <section id="articles" style="max-width:64rem;margin:0 auto;padding:0 1.5rem 6rem;position:relative;z-index:10;">
-  {{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
-  {{ $paginator := .Paginate $pages }}
+  {{ $paginator := .Paginate $sortedPages }}
 
   <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:2.5rem;">
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="var(--hx-text-strong)" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/></svg>
