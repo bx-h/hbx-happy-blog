@@ -1,0 +1,62 @@
+{{- $comments := site.Params.comments -}}
+{{- if and $comments $comments.enabled (ne .Params.comments false) -}}
+  {{- $provider := lower (default "" $comments.provider) -}}
+  {{- if eq $provider "utterances" -}}
+    {{- $cfg := $comments.utterances -}}
+    {{- $repo := default "" $cfg.repo -}}
+    {{- if $repo -}}
+<section class="hx-comments" aria-labelledby="comments-title">
+  <div class="hx-comments-head">
+    <h2 id="comments-title">评论</h2>
+    <p>欢迎留言交流，我会在 GitHub Issues 里回复你。</p>
+  </div>
+
+  <div id="hx-comments"></div>
+</section>
+
+<script>
+(function () {
+  var container = document.getElementById('hx-comments');
+  if (!container || container.dataset.loaded === 'true') return;
+
+  function currentCommentTheme() {
+    return document.documentElement.getAttribute('data-theme') === 'dark'
+      ? '{{ default "github-dark" $cfg.themeDark }}'
+      : '{{ default "github-light" $cfg.themeLight }}';
+  }
+
+  function syncCommentTheme() {
+    var frame = document.querySelector('.utterances-frame');
+    if (!frame || !frame.contentWindow) return;
+
+    frame.contentWindow.postMessage(
+      { type: 'set-theme', theme: currentCommentTheme() },
+      'https://utteranc.es'
+    );
+  }
+
+  var script = document.createElement('script');
+  script.src = 'https://utteranc.es/client.js';
+  script.async = true;
+  script.crossOrigin = 'anonymous';
+  script.setAttribute('repo', '{{ $repo }}');
+  script.setAttribute('issue-term', '{{ default "pathname" $cfg.issueTerm }}');
+  script.setAttribute('theme', currentCommentTheme());
+  {{- with $cfg.label }}
+  script.setAttribute('label', '{{ . }}');
+  {{- end }}
+  container.appendChild(script);
+  container.dataset.loaded = 'true';
+
+  window.addEventListener('hx-theme-change', syncCommentTheme);
+
+  var observer = new MutationObserver(syncCommentTheme);
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['data-theme']
+  });
+})();
+</script>
+    {{- end -}}
+  {{- end -}}
+{{- end -}}

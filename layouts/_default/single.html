@@ -131,6 +131,25 @@
   }
   .hx-post-nav .next { text-align: right; }
 
+  /* Comments */
+  .hx-comments {
+    margin-top: 3rem; padding: 1.5rem;
+    border-radius: 1.5rem; border: 1px solid var(--hx-border);
+    background: var(--hx-bg-card);
+  }
+  .hx-comments-head { margin-bottom: 1rem; }
+  .hx-comments-head h2 {
+    margin: 0 0 0.35rem; font-size: 1.2rem; font-weight: 600;
+    color: var(--hx-text-strong);
+  }
+  .hx-comments-head p {
+    margin: 0; font-size: 0.95rem; line-height: 1.7;
+    color: var(--hx-text-muted);
+  }
+  .hx-comments .utterances {
+    max-width: 100%; margin: 0;
+  }
+
   @media (max-width: 640px) {
     .hx-article { padding-top: 6rem; }
     .hx-post-nav { grid-template-columns: 1fr; }
@@ -189,6 +208,8 @@
     {{ end }}
   </nav>
   {{ end }}
+
+  {{ partial "comments.html" . }}
 </article>
 
 {{ end }}
