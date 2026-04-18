@@ -64,6 +64,16 @@
     {{- $repoID := default "" $cfg.repoid -}}
     {{- $category := default "" $cfg.category -}}
     {{- $categoryID := default "" $cfg.categoryid -}}
+    {{- $themeLight := default "light" $cfg.themelight -}}
+    {{- $themeDark := default "dark" $cfg.themedark -}}
+    {{- $themeLightResolved := $themeLight -}}
+    {{- if hasSuffix $themeLight ".css" -}}
+      {{- $themeLightResolved = $themeLight | absURL -}}
+    {{- end -}}
+    {{- $themeDarkResolved := $themeDark -}}
+    {{- if hasSuffix $themeDark ".css" -}}
+      {{- $themeDarkResolved = $themeDark | absURL -}}
+    {{- end -}}
     {{- if and $repo $repoID $category $categoryID -}}
 <section class="hx-comments" aria-labelledby="comments-title">
   <div class="hx-comments-head">
@@ -81,8 +91,8 @@
 
   function currentCommentTheme() {
     return document.documentElement.getAttribute('data-theme') === 'dark'
-      ? '{{ default "dark" $cfg.themedark }}'
-      : '{{ default "light" $cfg.themelight }}';
+      ? '{{ $themeDarkResolved }}'
+      : '{{ $themeLightResolved }}';
   }
 
   function syncCommentTheme() {
