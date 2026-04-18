@@ -38,6 +38,9 @@ params:
   env: production # 确保 GA 等功能在部署后开启
   description: "HBX 的个人思考与数字花园" # 换成你自己的描述
   author: "HBX" # 换成你的名字
+  assets:
+    theme_color: "#F3F0EA"
+    msapplication_TileColor: "#F3F0EA"
 
   # 视觉
   defaultTheme: auto # 自动 (明/暗)

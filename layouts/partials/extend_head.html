@@ -2,10 +2,22 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#F3F0EA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1c1917" media="(prefers-color-scheme: dark)">
+<meta name="msapplication-TileColor" content="#F3F0EA">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 
 <style>
   /* ===== Global Base ===== */
   :root {
+    --theme: #F3F0EA;
+    --entry: #F8F5F0;
+    --primary: #2F3740;
+    --secondary: #5B6570;
+    --tertiary: #DDD7CE;
+    --content: #2F3740;
+    --code-bg: #ECE7DF;
+    --border: #D8D1C7;
     --hx-bg: #F3F0EA;
     --hx-bg-card: rgba(250,248,244,0.72);
     --hx-bg-card-hover: #F8F5F0;
@@ -26,6 +38,14 @@
     --hx-glow2: rgba(91,101,112,0.08);
   }
   [data-theme="dark"] {
+    --theme: #1c1917;
+    --entry: #292524;
+    --primary: #fafaf9;
+    --secondary: #a8a29e;
+    --tertiary: #3f3a37;
+    --content: #d6d3d1;
+    --code-bg: #2a2826;
+    --border: #57534e;
     --hx-bg: #1c1917;
     --hx-bg-card: rgba(41,37,36,0.6);
     --hx-bg-card-hover: #292524;
@@ -46,6 +66,12 @@
     --hx-glow2: rgba(154,52,18,0.04);
   }
 
+  html,
+  body,
+  body.list,
+  body.single {
+    background: var(--hx-bg) !important;
+  }
   body {
     background: var(--hx-bg) !important;
     color: var(--hx-text) !important;
