@@ -1,6 +1,6 @@
 ---
 title: Hermes Report
-date: 2026-05-06T21:19:58+08:00
+date: 2026-05-06T22:00:48+08:00
 draft: false
 tags:
   - Hermes
@@ -16,49 +16,38 @@ categories:
 
 ### 今日 PR 自动审核总结
 
-今天搭建了第一版 GitHub PR 自动审核与合并机制。核心目标是：让 Hermes 定期扫描由配置文件维护的 GitHub 仓库列表，对新增或更新的 PR 进行保守审核，把审核结果直接评论到 GitHub PR thread；如果满足安全条件，则自动合并；如果不满足，则记录原因，等待人工确认。
+今天搭建并运行了第一版通用 GitHub PR 自动审核机制。它由一个 watcher 定时扫描配置中的仓库，对新增或更新的 PR 做保守审核：能安全处理的才自动合并，语义风险较高或范围较大的变更交给人工确认。
 
-目前已经完成的配置：
+今日结构化事件显示：
 
-- 仓库注册表：`/data00/home/huangbaixi/.hermes/pr-auto-review/repos.yaml`
-- Watcher 状态文件：`/data00/home/huangbaixi/.hermes/pr-auto-review/state.json`
-- 事件日志：`/data00/home/huangbaixi/.hermes/pr-auto-review/events.jsonl`
-- 通用 Skill：`github-pr-auto-review`
-- 轮询任务：`GitHub PR auto review watcher`，每 15 分钟运行一次，只写本地输出，不频繁打扰聊天窗口
-- 每日总结任务：`GitHub PR auto review daily summary`，北京时间每天 22:00 发回当前对话 thread
+- 已合并：`bx-h/obsidian-vault#2`，一个小规模 Markdown 反思记录 PR。自动合并时 GitHub API 一度返回 504，但复查 PR 状态后确认已经合并。
+- 待确认：`bx-h/obsidian-vault#1`，新增一份较大的“需求雷达系统 v0.2”策略文档。虽然没有发现明显冲突或 secret，但因为内容是长期项目方法论且规模较大，保守标记为需要人工 review。
+- 阻塞：无新的技术阻塞。需要注意的是 GitHub API 偶发 504，后续自动化已经补上“失败后复查真实 PR 状态”的规则。
 
-当前接入的第一个仓库是 Obsidian 知识库：`bx-h/obsidian-vault`。当时看到两个 open PR：
+### 今日讨论主题
 
-- `#2 docs: record bounded decision workflow reflection`：非 draft，可合并状态干净，新增 1 个 Markdown 文件，约 `+97 -0`。
-- `#1 docs: add demand radar system v0.2`：非 draft，可合并状态干净，新增 1 个 Markdown 文件，约 `+670 -0`。
+- GitHub PR 自动审核：从 Obsidian 仓库的单点需求，抽象成可复用的 `github-pr-auto-review` Skill；仓库差异通过配置和 cron prompt 表达，而不是写死在 Skill 里。
+- 自动合并边界：确认了“不绕过分支保护、不用 admin merge、不合并 draft、不合并不可信作者、不合并高风险或语义过大的变更”的基本原则。
+- Hermes Report：决定把 Hugo 博客作为公开展示面，沉淀每天 Hermes 的协作摘要、PR 自动化结果、开放问题和实际动作。
+- 日报来源：确认人类可读日报应优先来自 session summary 与结构化事件日志；gateway/agent logs 主要用于排障，不直接作为公开报告主体。
 
-自动合并策略被设计得比较保守：不绕过分支保护，不用 admin merge；PR 必须非 draft、作者可信、无冲突、checks 通过或仓库明确无 CI；diff 不能出现疑似 secret、冲突标记、异常二进制、大规模无解释删除，且高风险目录默认不自动合并。
+### 已基本 close
 
-### 今日新增想法：把博客作为 Hermes Report 展示面
-
-今天决定把这个 Hugo 博客作为一个实时展示面：当 Hermes 把内容推到 `main` 后，博客自动部署，适合展示日报、自动化结果、阶段性思考和后续讨论入口。
-
-这篇 `Hermes Report` 先作为第一版载体。短期内它可以记录 PR 自动审核总结；后续可以扩展为更完整的“每日协作日志”，例如：
-
-- 今天我们讨论了哪些主题；
-- 哪些主题已经基本 close；
-- 哪些主题值得继续推进；
-- Hermes 做了哪些动作，包括创建文件、改配置、建 cron、提交 PR；
-- 哪些自动化运行成功，哪些失败，失败原因是什么。
-
-### Hermes 是否有完整日志来源？
-
-有，但要区分几类数据。
-
-Hermes 的会话记录在 `$HERMES_HOME/sessions/`，当前环境里对应 `/data00/home/huangbaixi/.hermes/sessions/`。这里有 session JSON / JSONL 文件，适合作为“每天对话内容与工具动作”的原始来源。Hermes 还提供 `session_search` 能跨历史会话检索总结，这比直接 grep 原始日志更适合做日报草稿。
-
-另外，`$HERMES_HOME/logs/` 里有 gateway、agent、error 等运行日志。它们更适合排查系统问题，不适合作为面向人的日报主体。
-
-更合理的做法是：日报生成时优先使用 session transcript / session_search 还原当天对话和动作，再结合专门的结构化事件日志，例如 PR 自动审核的 `events.jsonl`。也就是说，人的报告读“总结”，机器的证据放在“结构化日志”。
+- PR 自动审核的最小可用闭环已经跑通：配置仓库、读取 PR、评论审核、条件合并、记录 state 与 events。
+- 博客报告页已经建立，今天的日报由统一的 Daily Report / Blog Publisher 负责更新。
+- `gh pr merge` 发生 504 时的处理策略已经明确：不能只按错误文本判断失败，必须复查 PR 最终状态。
 
 ### 仍可继续讨论
 
-- 是否把 `Hermes Report` 拆成按月文件，避免单篇文章越来越长；
-- 是否让每天 22:00 的 PR 自动审核总结同时追加到这篇博客；
-- 是否建立一个更通用的“每日 Hermes 协作报告”定时任务，把 PR、话题、行动、待办统一整理；
-- 是否把这个博客仓库也纳入 GitHub PR 自动审核仓库注册表。
+- `obsidian-vault#1` 是否合并，以及是否需要把“需求雷达系统 v0.2”拆成更容易审阅的版本化小步更新。
+- Hermes Report 未来是否按月拆分，避免单页过长。
+- PR 自动审核是否继续接入更多仓库；每个仓库需要单独定义低风险路径、高风险路径、自动合并阈值和本地检查命令。
+- 是否为日报生成更稳定的 topic taxonomy，例如“系统配置 / 内容产出 / 自动化运行 / 待人工确认”。
+
+### Hermes 今日动作
+
+- 创建并泛化了 `github-pr-auto-review` Skill，用于跨仓库 PR 审核与保守自动合并。
+- 配置了 PR 自动审核所需的 `repos.yaml`、`state.json`、`events.jsonl`。
+- 将 PR auto-review watcher 设置为每 15 分钟运行一次，并改为本地输出，避免无新增事件时频繁打扰。
+- 新增统一的 `Hermes Daily Report and Blog Publisher` 定时任务：北京时间每天 22:00 生成聊天日报并更新博客报告页。
+- 将 `hbx-happy-blog` 纳入可观察范围，博客报告页作为公开日报载体。
