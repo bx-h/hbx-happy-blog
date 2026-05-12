@@ -1,6 +1,6 @@
 ---
 title: Hermes Report
-date: 2026-05-11T14:00:00+08:00
+date: 2026-05-12T14:00:00+08:00
 draft: false
 tags:
   - Hermes
@@ -16,17 +16,18 @@ categories:
 
 ### 活跃 Cron Jobs
 
-> 时间按北京时间解释；Hermes 调度器内部使用 UTC。`deliver=local` 表示只记录本地结果，不主动打扰聊天。
+> 时间按北京时间解释；`deliver=local` 表示只记录本地结果，不主动打扰聊天。本表根据 2026-05-12 14:00 的 `hermes cron list` 更新。
 
 | Job ID | 名称 | 频率 / 时间 | 投递 | 主要 Skill / 脚本 | 职责 |
 |---|---|---:|---|---|---|
-| `2fa66511d28e` | `每日知识库思考问题` | 每天 22:30 | origin | `obsidian`, `daily-knowledge-qa-journal` | 翻阅知识库并提出一个值得思考的问题。 |
+| `2fa66511d28e` | `每日知识库思考问题` | 每天 14:30 | origin | `obsidian`, `daily-knowledge-qa-journal` | 翻阅知识库并提出一个值得思考的问题。 |
 | `7eedc18537ea` | `daily-obsidian-vault-backup` | 每天 09:00 | origin | `obsidian`, `git-branch-first-maintenance`, `github-pr-workflow` | 自动备份 Obsidian 知识库。 |
-| `b4f9573320d8` | `weekly-hermes-health-audit` | 每周一 09:30 | origin | `hermes-agent`, `hermes-health-audit` | 每周检查 Hermes 安装、配置、工具、cron、上下文文件和健康状态。 |
+| `b4f9573320d8` | `weekly-hermes-health-audit` | 每周一 01:30 | origin | `hermes-agent`, `hermes-health-audit` | 每周检查 Hermes 安装、配置、工具、cron、上下文文件和健康状态。 |
 | `d8adacdd099a` | `GitHub PR auto review watcher` | 每 15 分钟 | local | `github-pr-auto-review`, `github-code-review`, `github-pr-workflow` | 扫描配置仓库的 PR，做单点 review、GitHub 评论、保守自动合并，并写入事件日志。 |
 | `f5e2d4d4a2df` | `hermes-config-backup-every-3-days` | 每 3 天 | origin | `backup_hermes_config.py` | 选择性备份 Hermes 非敏感配置、skills、memories 和 cron jobs。 |
-| `70695c66246f` | `Hermes Daily Report and Blog Publisher` | 每天 22:00 | origin | `hermes-blog-report`, `git-branch-first-maintenance`, `github-pr-workflow`, `hermes-agent` | 生成聊天日报；如内容公开安全，则更新并发布本博客报告页。 |
+| `70695c66246f` | `Hermes Daily Report and Blog Publisher` | 每天 14:00 | origin | `hermes-blog-report`, `git-branch-first-maintenance`, `github-pr-workflow`, `hermes-agent` | 生成聊天日报；如内容公开安全，则更新并发布本博客报告页。 |
 | `02118dd923d9` | `Watch Hermes Agent activity ledger PR #20821` | 每 6 小时 | origin | `watch_hermes_activity_ledger_pr.py` | 跟踪 Hermes activity-ledger 相关上游 PR 状态。 |
+| `802ab0636861` | `MU 美光大阴线监控` | 每周二至周六 06:30 | origin | `monitor_mu_bearish_candle.py` | 美股收盘后检查 MU 是否出现大阴线，安静运行，仅在有信号或错误时投递。 |
 
 ### 本地自定义 / 沉淀的 Skills
 
@@ -36,9 +37,9 @@ categories:
 | `git-branch-first-maintenance` | `software-development` | 已创建 | 固化“所有仓库修改必须先建工作分支、提交、推送、开 PR”的维护规则。 |
 | `bounded-decision-workflow` | `productivity` | 已创建 | 在启动任务或做选择前，先定义边界、时间盒、停止条件，避免低杠杆过度优化。 |
 | `github-pr-auto-review` | `github` | 已创建并泛化 | 通用多仓库 PR 自动审核：只负责单个 PR review / comment / merge / event logging。 |
-| `hermes-blog-report` | `note-taking` | 已创建并更新 | 负责 Daily Report 聚合、公开安全摘要、Hugo 博客报告发布。 |
-| `task-copilot-workflow` | `productivity` | 已创建并持续更新 | 处理“新增任务 / 开始任务 / 开始计时 / 结束计时 / 今日早报 / 任务完成”等任务副驾驶指令。 |
-| `special-projects` | `productivity` | 已创建并实战使用 | 管理长期专项：研究、实验、决策、产物、代码和后续 Skill 沉淀。 |
+| `hermes-blog-report` | `note-taking` | 已创建并持续更新 | 负责 Daily Report 聚合、覆盖审计、公开安全摘要、Hugo 博客报告发布。 |
+| `task-copilot-workflow` | `productivity` | 已创建并持续更新 | 处理任务副驾驶、任务账本、状态变化和日常任务收束。 |
+| `special-projects` | `productivity` | 已创建并修正边界 | 管理长期专项；当前规则已调整为“总导览页优先，复杂专项优先独立仓库”。 |
 | `ai-native-app-design` | `productivity` | 已创建 | 沉淀 AI-native 产品设计原则：生成式界面、上下文感知、成长回路、用户主权和渐进式自动化。 |
 | `cdn-upload-html` | `bytedance` | 已创建并验证 | 将 Hermes 生成的 HTML artifact 上传到 CDN；用于临时可访问原型和展示页，但必须遵守公开 / 内部边界。 |
 
@@ -48,9 +49,77 @@ categories:
 - PR 状态文件:   /data00/home/huangbaixi/.hermes/pr-auto-review/state.json
 - PR 事件日志:   /data00/home/huangbaixi/.hermes/pr-auto-review/events.jsonl
 - Activity ledger: /data00/home/huangbaixi/.hermes/activity-ledger/YYYY-MM-DD/turns.jsonl
-- 博客仓库:      /data00/home/huangbaixi/hbx-happy-blog
-- 报告页面:      content/posts/hermes-report.md
+- Sessions:      /data00/home/huangbaixi/.hermes/sessions/
+- Blog repo:     /data00/home/huangbaixi/hbx-happy-blog
+- Report page:   content/posts/hermes-report.md
 ```
+
+---
+
+## 2026-05-12
+
+### 一句话总结
+
+今天没有新的结构化 PR 自动审核事件；真正值得记录的是对 `special-projects` 体系边界的纠偏：把“专项总仓库堆多个 worktree / 子项目”的混乱，收束为“总导览页 + 复杂专项独立仓库”的长期维护原则，并已更新到 `special-projects` Skill 和长期记忆中。
+
+### 今日主要成果
+
+#### 1. `special-projects` 维护模型纠偏
+
+| 项目 | 结果 |
+|---|---|
+| 发现的问题 | 本地存在多个 `special-projects-*` 目录，且很多目录都包含 `feishu-whiteboard-ai-drawing`，表面看像专项被复制到多个项目中。 |
+| 根因判断 | 这些目录主要是同一个 `bx-h/special-projects` 仓库的不同 git worktree；每个 worktree 带着该分支已有的专项目录，因此看起来像“专项套专项”。 |
+| 结构性结论 | `special-projects` 不应该长期承载所有复杂专项的全部内容；它更适合作为总导览 / index repo。 |
+| 新维护模型 | `special-projects` 保留 README、状态索引和跨专项约定；复杂长期专项优先拆成独立 GitHub 仓库，例如 `special-project-<slug>`。 |
+| 已沉淀动作 | 已 patch `special-projects` Skill：明确“总导览页优先，复杂专项优先独立仓库”；临时 worktree 也不应长期以同层 `special-projects-*` 命名堆放。 |
+| 长期记忆 | 已写入偏好：以后“专项 / 按照专项 Skill”默认指 `/data00/home/huangbaixi/special-projects` 工作流，但复杂专项应优先独立仓库。 |
+
+这次修正很重要。它不是简单目录清理，而是把“项目边界”从 Git 分支/worktree 的临时形态里解耦出来。专项如果变复杂，就应该有自己的 repo、issue、PR、代码、实验和文档；总仓库只负责告诉人和 Agent：有哪些专项、状态如何、入口在哪里。
+
+#### 2. 今日 PR 自动审核与自动化运行
+
+| 项目 | 今日状态 |
+|---|---|
+| PR auto-review events | `/data00/home/huangbaixi/.hermes/pr-auto-review/events.jsonl` 中今天无结构化事件。 |
+| Activity ledger | 今天有 1 条 reportable 线索，主题为 `special-projects` 目录 / worktree / 仓库边界修正。 |
+| PR watcher | `d8adacdd099a` 今日多次运行，最近几次状态为 OK；未产生需要日报展开的 review/merge 事件。 |
+| Obsidian backup | `7eedc18537ea` 今日 09:00 运行成功。 |
+| MU 监控 | `802ab0636861` 今日 06:30 运行成功；无需要展开的告警内容。 |
+| Blog publisher | 本次任务继续执行日报与博客发布。 |
+
+#### 3. 当前自动化总览更新
+
+今天同步更新了报告开头的自动化总览：补入 `MU 美光大阴线监控`，并按 2026-05-12 14:00 的实际 `hermes cron list` 修正了 cron 时间、投递方式和职责说明。
+
+### 今日讨论主题
+
+| 主题 | 结论 | 下一步 |
+|---|---|---|
+| `special-projects` 总仓库边界 | 用户的判断是对的：总仓库不应变成“所有专项的大杂烩”。复杂专项应优先独立仓库，总仓库做索引。 | 先审计现有 worktree / 分支 / PR 状态，再决定哪些专项迁移为独立 repo。 |
+| worktree 命名和目录可理解性 | 同层 `special-projects-*` 长期存在会误导人，以为它们是独立项目目录。 | 后续临时 worktree 更适合放在 `.worktrees/special-projects/<branch>/` 这类隔离路径。 |
+| `special-projects` Skill | 原 Skill 默认把专项放在一个总仓库下，容易扩大总仓库职责。 | 已更新 Skill；未来创建专项时先判断“轻量索引项”还是“独立 repo”。 |
+| PR 自动审核 | 今日没有新的结构化 PR review/merge 事件。 | 继续由 watcher 产生日志，日报只消费，不做业务 PR review。 |
+
+### 已基本 close
+
+- 已确认 `special-projects-*` 目录异常的根因主要是 git worktree，而不是多个 GitHub 独立仓库真的互相复制。
+- 已确认 `special-projects` 的长期定位：总导览页 / 索引仓库，而不是无限膨胀的专项 monorepo。
+- 已更新 `special-projects` Skill，使未来 Agent 在创建专项时默认考虑独立仓库边界。
+- 已更新长期记忆，避免之后再次把“专项”理解成普通 Obsidian 项目笔记或把复杂专项塞进总仓库。
+
+### 仍需人工判断
+
+- 哪些现有专项应该迁移成独立仓库：例如 task copilot、passive income、self-media、qingxing-naiba、Feishu whiteboard 等，需要逐一看成熟度和代码/实验复杂度。
+- 是否现在就清理本地 `special-projects-*` worktree。不能直接删除；应先检查每个 worktree 的分支、未提交修改、远程 PR 和合并状态。
+- `special-projects` 总仓库 README 是否要正式改成“专项索引页”，并用 PR 更新 GitHub 上的说明。
+- 当前日报 cron 的显示时间与“北京 22:00”历史描述仍存在口径差异：今天 `hermes cron list` 显示本 job 为每天 14:00 +08:00。本文按实际调度状态记录，后续如要恢复 22:00 需要单独调整并验证 `next_run_at`。
+
+### 对今天报告质量的修正 / 备注
+
+- Coverage audit 使用了 activity ledger、PR events、recent sessions 以及四组 session search。今天的非 PR 成果主要由 activity ledger 和 `special-projects` 定向召回恢复；如果只看 PR events，会错误得出“今天没事发生”。
+- 出于公开安全边界，报告只写 `special-projects` 工作流和仓库边界，不公开内部文档、公司业务细节、原始 transcript 或私密目录内容。
+- 今日 PR events 为空，因此本节没有伪造 PR 成果；日报重点转向系统维护和知识/项目治理决策。
 
 ---
 
