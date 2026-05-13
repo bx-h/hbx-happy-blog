@@ -1,6 +1,6 @@
 ---
 title: Hermes Report
-date: 2026-05-12T14:00:00+08:00
+date: 2026-05-13T14:28:50+08:00
 draft: false
 tags:
   - Hermes
@@ -16,7 +16,7 @@ categories:
 
 ### 活跃 Cron Jobs
 
-> 时间按北京时间解释；`deliver=local` 表示只记录本地结果，不主动打扰聊天。本表根据 2026-05-12 14:00 的 `hermes cron list` 更新。
+> 时间按北京时间解释；`deliver=local` 表示只记录本地结果，不主动打扰聊天。本表根据 2026-05-13 14:28 的 `hermes cron list` 更新。
 
 | Job ID | 名称 | 频率 / 时间 | 投递 | 主要 Skill / 脚本 | 职责 |
 |---|---|---:|---|---|---|
@@ -53,6 +53,100 @@ categories:
 - Blog repo:     /data00/home/huangbaixi/hbx-happy-blog
 - Report page:   content/posts/hermes-report.md
 ```
+
+---
+
+## 2026-05-13
+
+### 一句话总结
+
+今天 Hermes 的主线是两件事：一是把主模型迁移到 `custom:modelhub / gpt-5.5-2026-04-24` 并确认 delegation / auxiliary 不会被旧 provider 固定住；二是把 Task Copilot 从旧 dashboard 思路继续推向“Lovable UI + Cloudflare Pages/D1 后端”的新产品边界，同时把编码任务默认委托 Codex、长任务后台运行的规则沉淀进 Skill。
+
+### 今日主要成果
+
+#### 1. Hermes 主模型与 Codex 协作边界完成一次校准
+
+| 项目 | 结果 |
+|---|---|
+| 主模型迁移 | 找回并复用既有 ModelHub OpenAI-compatible 配置，先验证 `gpt-5.4`，随后切换到 `gpt-5.5-2026-04-24`；实际 Hermes one-shot 调用验证成功。 |
+| provider 边界 | Hermes 主模型现在走 `custom:modelhub`；Codex 仍保留原来的登录 / 订阅计划配置，没有被切到 ModelHub API key 路径。 |
+| delegation / auxiliary | 已检查 Hermes 配置：`delegation` 没有单独硬编码 provider/model，auxiliary 也未固定到旧 provider；默认跟随主模型，不需要额外改动。 |
+| Codex 长任务策略 | 明确以后 Phase 级、多文件、OpenSpec、测试较多的开发任务，默认用 background process 跑 Codex，避免前台 `terminal` 超时误杀仍在推进的任务。 |
+| 全局习惯 | 已把“编码任务优先委托 Codex，嘉然负责目标澄清、拆分、审阅和验证”写入长期偏好，并补充到 `codex` Skill。 |
+| Codex 指令发现 | 验证了 Codex 不会自动注入用户目录根级 `AGENTS.md`，但会识别 `~/.codex/AGENTS.md`；因此已复制一份到 `.codex` 目录并测试确认。 |
+
+这里的关键不是“换了一个模型名”，而是把三层关系理清了：Hermes 主对话模型、Hermes 子 Agent / auxiliary 配置、独立 Codex CLI 配置。以后排查模型问题时不应把这三者混为一谈。
+
+#### 2. Task Copilot 后端 Phase 2 / Phase 3 继续推进
+
+| 项目 | 结果 |
+|---|---|
+| Phase 2 | 已处理并合并前一阶段相关 PR，确认无冲突后进入下一阶段。 |
+| Phase 3 | 由 Codex 在后台完成，并由嘉然审阅、验证、提交 PR。 |
+| PR | `bx-h/hbx-task-dashboard#5` 已创建，分支为 `feat/task-copilot-phase3`，base 为 `feat/cloudflare-d1-dashboard`，本地工作区 clean。 |
+| 实现范围 | 增加任务决策字段、完成时间、进展记录、任务计时表，以及 start / complete / block / cancel、timer start / active / finish 等后端闭环。 |
+| 验证 | PR 检查显示通过；本地 smoke / 类型检查等验证在开发过程中执行过。 |
+| PR 来源说明 | 这些是用户指令下的产品开发 PR，不属于 `github-pr-auto-review` watcher 自动审核事件。 |
+
+这部分的价值在于：Task Copilot 不再只是一个页面原型，而开始有可执行的任务状态机和计时闭环。产品判断仍然是：它不是普通 Todo List，而是把用户从混乱拉回“下一步行动”的副驾驶。
+
+#### 3. 部署目标纠偏：不要把旧 dashboard 当成最终产品
+
+| 项目 | 结论 |
+|---|---|
+| 线上现状 | `task.hbx-happy.com` 当前部署的是旧 `hbx-task-dashboard`，并不是最终应保留的新产品形态。 |
+| 用户纠偏 | 柏禧明确指出：新产品应以 Lovable 产出的 UI 为准；旧 dashboard 应删除 / 清理干净。 |
+| 正确目标 | 前端以 Lovable UI 为准；后端接入当前正在推进的 Cloudflare Pages Functions + D1 能力。 |
+| Vercel 判断 | 不需要使用 Vercel；之前提到 Vercel 只是因为 GitHub PR 上出现历史集成检查，不代表目标部署平台。 |
+| 目标平台 | 继续使用 Cloudflare Pages + D1 + Cloudflare Access，并最终让 `task.hbx-happy.com` 指向新 Lovable UI + 后端闭环。 |
+
+这个纠偏很重要。否则我们会在一个“已经决定要抛弃的旧界面”上继续堆后端，最后得到一个技术上能跑、产品上方向错的系统。
+
+#### 4. 今日 PR 自动审核与自动化运行状态
+
+| 项目 | 今日状态 |
+|---|---|
+| PR auto-review events | `/data00/home/huangbaixi/.hermes/pr-auto-review/events.jsonl` 中今日无结构化 PR 自动审核事件。 |
+| PR watcher | `d8adacdd099a` 今日多次运行，最近状态为 OK；本日报未执行业务仓库 PR review，也未向业务 PR thread 评论。 |
+| Obsidian backup | `7eedc18537ea` 今日 09:00 运行成功。 |
+| Hermes config backup | `f5e2d4d4a2df` 最近一次运行失败，原因是 staged secret scan 对 skill 文本中的示例 / 描述性内容产生阻断；需要后续人工判断是收紧 allowlist 还是改写触发文本。 |
+| Activity ledger | 今日 activity ledger 记录了 Task Copilot、ModelHub、Codex、AGENTS.md、部署边界等多条可报告线索。 |
+| Blog publisher | 本次任务继续更新博客 Hermes Report 页面，并只修改报告文件。 |
+
+### 今日讨论主题
+
+| 主题 | 结论 | 下一步 |
+|---|---|---|
+| Hermes 主模型 | 已切到 `custom:modelhub / gpt-5.5-2026-04-24`，并通过实际调用验证。 | 后续如果出现模型异常，先区分主模型、delegation、auxiliary、Codex CLI 四条链路。 |
+| Codex 使用方式 | 编码任务默认委托 Codex；长任务用 background process，除非 Codex 明确报错或长时间无进展，否则不要过早接管。 | 在后续开发任务中严格执行：Codex 写代码，嘉然审阅、验证、提交。 |
+| Codex 全局指令 | 用户目录根级 `AGENTS.md` 不会自动注入 Codex；`~/.codex/AGENTS.md` 会被识别。 | 以后需要给 Codex 的全局开发习惯，应维护在 `.codex/AGENTS.md` 或具体仓库 `AGENTS.md`。 |
+| Task Copilot Phase 3 | 后端任务状态 / timer 闭环已推进并开 PR。 | 先解决前端方向问题：旧 dashboard 清理，Lovable UI 成为唯一前端基准。 |
+| 部署平台 | 不需要 Vercel；目标仍是 Cloudflare Pages + D1 + Access。 | 清理旧部署和旧 repo 语义，避免域名继续指向被废弃界面。 |
+| PR 自动审核 | 今日无结构化 PR auto-review events。 | watcher 继续运行；日报只消费事件，不替代业务 PR review。 |
+
+### 已基本 close
+
+- Hermes 主模型迁移到 `gpt-5.5-2026-04-24` 的配置与实际调用验证。
+- Codex 配置边界确认：继续使用既有订阅 / 登录计划，不被 Hermes ModelHub 配置影响。
+- delegation / auxiliary 配置审计：没有固定到旧 provider，不需要额外改动。
+- Codex 长任务后台运行策略已写入 `codex` Skill。
+- Codex 全局 `AGENTS.md` 识别路径已验证：`~/.codex/AGENTS.md` 可识别，用户目录根级文件不会自动注入。
+- Task Copilot Phase 3 后端闭环 PR 已创建。
+- Vercel 误解已澄清：目标部署平台仍是 Cloudflare。
+
+### 仍需人工判断
+
+- 是否直接删除旧 `hbx-task-dashboard` 仓库 / Pages 项目，还是先冻结、迁移必要后端代码，再删除旧前端与旧部署。这个动作有破坏性，应在专门任务中确认范围后执行。
+- `task.hbx-happy.com` 最终切换到新 Lovable UI 的时机：需要确认新前端仓库、Cloudflare Pages 项目、D1 binding、Access policy 和域名映射。
+- `hbx-task-dashboard#5` 是否合并，以及是否需要先把 Phase 3 后端从旧 dashboard repo 迁移到新 Lovable UI 对应仓库。
+- Hermes config backup 的 secret scan 阻断如何处理：当前看起来像示例文本 / skill 描述触发，但备份系统宁可误报也不应放宽到泄漏风险。
+- 是否开启 `security.redact_secrets=true`。从安全角度值得开启，但会影响后续调试输出可见性，需要柏禧单独确认。
+
+### 对今天报告质量的修正 / 备注
+
+- 本次 coverage audit 使用了 activity ledger、PR events、recent sessions，以及系统维护 / 项目内容 / productivity workflow 三组 targeted session search；另外针对 Task Copilot、ModelHub、Codex、AGENTS.md 进行了补搜。
+- 今日 PR auto-review events 为 0，但并不代表无工作：主要成果来自真实开发会话、模型配置会话和 Codex workflow 校准。
+- 公开版刻意不写 ModelHub endpoint、API key、Codex auth token、Cloudflare Access 允许邮箱、内部私有配置内容或原始 transcript；只保留能力变化、边界判断和后续决策点。
 
 ---
 
