@@ -1,6 +1,6 @@
 ---
 title: Hermes Report
-date: 2026-05-15T14:25:00+08:00
+date: 2026-05-16T14:01:00+08:00
 draft: false
 tags:
   - Hermes
@@ -16,30 +16,30 @@ categories:
 
 ### 活跃 Cron Jobs
 
-> 时间按北京时间解释；`deliver=local` 表示只记录本地结果，不主动打扰聊天。本表根据 2026-05-15 14:00 的 `hermes cron list` 更新。
+> 时间按 `hermes cron list` 在 2026-05-16 14:01 +08 的 live 结果解释；`deliver=local` 表示只记录本地结果，不主动打扰聊天。
 
-| Job ID | 名称 | 频率 / 时间 | 投递 | 主要 Skill / 脚本 | 职责 |
+| Job ID | 名称 | 频率 / 北京时间 | 投递 | 主要 Skill / 脚本 | 职责 |
 |---|---|---:|---|---|---|
 | `2fa66511d28e` | `每日知识库思考问题` | 每天 14:30 | origin | `obsidian`, `daily-knowledge-qa-journal` | 翻阅知识库并提出一个值得思考的问题。 |
-| `7eedc18537ea` | `daily-obsidian-vault-backup` | 每天 09:00 | origin | `obsidian`, `git-branch-first-maintenance`, `github-pr-workflow` | 自动备份 Obsidian 知识库；今日 09:00 运行成功且无新增变更。 |
+| `7eedc18537ea` | `daily-obsidian-vault-backup` | 每天 09:00 | origin | `obsidian`, `git-branch-first-maintenance`, `github-pr-workflow` | 自动备份 Obsidian 知识库；今日运行成功且无新增变更。 |
 | `b4f9573320d8` | `weekly-hermes-health-audit` | 每周一 01:30 | origin | `hermes-agent`, `hermes-health-audit` | 每周检查 Hermes 安装、配置、工具、cron、上下文文件和健康状态。 |
 | `d8adacdd099a` | `GitHub PR auto review watcher` | 每 15 分钟 | local | `github-pr-auto-review`, `github-code-review`, `github-pr-workflow` | 扫描配置仓库的 PR，做单点 review、GitHub 评论、保守自动合并，并写入事件日志。 |
 | `f5e2d4d4a2df` | `hermes-config-backup-every-3-days` | 每 3 天 | origin | `backup_hermes_config.py` | 选择性备份 Hermes 非敏感配置、skills、memories 和 cron jobs；最近一次仍被 secret scan 阻断。 |
 | `70695c66246f` | `Hermes Daily Report and Blog Publisher` | 每天 14:00 | origin | `hermes-blog-report`, `git-branch-first-maintenance`, `github-pr-workflow`, `hermes-agent` | 生成聊天日报；如内容公开安全，则更新并发布本博客报告页。 |
 | `02118dd923d9` | `Watch Hermes Agent activity ledger PR #20821` | 每 6 小时 | origin | `watch_hermes_activity_ledger_pr.py` | 跟踪 Hermes activity-ledger 相关上游 PR 状态。 |
-| `802ab0636861` | `MU 美光大阴线监控` | 每周二至周六 06:30 | origin | `monitor_mu_bearish_candle.py` | 美股收盘后检查 MU 是否出现大阴线，安静运行，仅在有信号或错误时投递。 |
+| `802ab0636861` | `MU 美光大阴线监控` | 每周二至周六 06:30 | origin | `monitor_mu_bearish_candle.py` | 美股收盘后检查 MU 是否出现大阴线；安静运行，仅在有信号或错误时投递。 |
 
 ### 本地自定义 / 沉淀的 Skills
 
 | Skill | 分类 | 状态 | 用途 |
 |---|---|---|---|
 | `hermes-health-audit` | `devops` | 已创建 | 使用 `hermes doctor`、`hermes status --all` 等命令做 Hermes 健康审计，并沉淀成每周巡检流程。 |
-| `git-branch-first-maintenance` | `software-development` | 已创建 | 固化“所有仓库修改必须先建工作分支、提交、推送、开 PR”的维护规则。 |
+| `git-branch-first-maintenance` | `software-development` | 已创建 | 固化“所有仓库修改必须先建工作分支、提交、推送、必要时开 PR”的维护规则。 |
 | `bounded-decision-workflow` | `productivity` | 已创建 | 在启动任务或做选择前，先定义边界、时间盒、停止条件，避免低杠杆过度优化。 |
 | `github-pr-auto-review` | `github` | 已创建并泛化 | 通用多仓库 PR 自动审核：只负责单个 PR review / comment / merge / event logging。 |
 | `hermes-blog-report` | `note-taking` | 已创建并持续更新 | 负责 Daily Report 聚合、覆盖审计、公开安全摘要、Hugo 博客报告发布。 |
 | `task-copilot-workflow` | `productivity` | 已创建并持续更新 | 处理任务副驾驶、任务账本、状态变化和日常任务收束。 |
-| `special-projects` | `productivity` | 已创建并修正边界 | 管理长期专项；当前规则已调整为“总导览页优先，复杂专项优先独立仓库”。 |
+| `special-projects` | `productivity` | 已创建并修正边界 | 管理长期专项；当前规则已调整为“总导航页优先，复杂专项优先独立仓库”。 |
 | `ai-native-app-design` | `productivity` | 已创建 | 沉淀 AI-native 产品设计原则：生成式界面、上下文感知、成长回路、用户主权和渐进式自动化。 |
 | `cdn-upload-html` | `bytedance` | 已创建并验证 | 将 Hermes 生成的 HTML artifact 上传到 CDN；用于临时可访问原型和展示页，但必须遵守公开 / 内部边界。 |
 
@@ -53,6 +53,71 @@ categories:
 - Blog repo:     /data00/home/huangbaixi/hbx-happy-blog
 - Report page:   content/posts/hermes-report.md
 ```
+
+
+
+## 2026-05-16
+
+### 一句话总结
+
+今天仍是一个“低业务事件、自动化正常运转”的收束日：PR 自动审核 watcher 高频运行但没有新增结构化 PR review / merge 事件，Obsidian 知识库备份确认无变更；需要继续处理的不是业务 PR，而是 Hermes config backup 的保守 secret scan 阻断，以及 Daily Report cron 实际运行时间与“北京 22:00”目标口径的错位。
+
+### 今日主要成果
+
+#### 1. 自动化系统完成日常巡检式收束
+
+| 项目 | 今日状态 | 判断 |
+|---|---|---|
+| PR auto-review events | 北京时间 2026-05-16 范围内 `/data00/home/huangbaixi/.hermes/pr-auto-review/events.jsonl` 无新增结构化事件。 | 不是故障；说明今天没有新的业务 PR review / merge 需要进入日报。 |
+| PR watcher | `d8adacdd099a` 今日持续每 15 分钟运行，最近多次 session 均为低噪声轮询。 | watcher 正常安静运行；本日报没有执行业务仓库 PR review，也没有向业务 PR thread 评论。 |
+| Obsidian backup | `7eedc18537ea` 今日 09:00 运行成功；`main` 与 `origin/main` 同步，工作区干净。 | 知识库备份链路可用，但今日没有需要提交或开 PR 的新内容。 |
+| MU 监控 | `802ab0636861` 今日 06:30 运行成功。 | 未发现需要在 Hermes 日报展开的异常。 |
+| Daily Report publisher | 本次继续更新博客 Hermes Report 页面。 | 今日内容只涉及自动化状态与公开安全的工作流摘要，适合公开发布。 |
+
+#### 2. 当前自动化总览按 live cron 结果校准
+
+| 发现 | 影响 | 处理 |
+|---|---|---|
+| `hermes cron list` 显示本日报 job `70695c66246f` 的 schedule 为 `0 14 * * *`，下一次运行是 `2026-05-17T14:00:00+08:00`。 | 这与任务描述里的“每天北京时间 22:00（UTC 14:00）”存在口径冲突；live cron 是事实来源。 | 本报告按 live cron 记录，并继续把“是否调整到真正 22:00 +08”列为人工判断项。 |
+| `hermes-config-backup-every-3-days` 最近一次仍因 secret scan 阻断；下一次计划在 2026-05-18 21:04 +08 运行。 | 配置备份属于低频但关键的灾备能力；长期失败会降低恢复能力。 | 不在日报 job 中绕过扫描；建议另开专门修复任务。 |
+| Activity ledger 今日目录不存在。 | 非 PR 成果不能依赖 ledger，只能 fallback 到 sessions、cron 记录和 targeted search。 | 今日 coverage audit 已做 fallback；报告注明已知盲区。 |
+
+#### 3. 今日 PR 自动审核总结
+
+| 仓库 | 今日事件 | 结论 |
+|---|---:|---|
+| `bx-h/obsidian-vault` | 0 | 无新增 review / merge 事件；历史 PR 状态文件显示已知 PR 均为已处理状态。 |
+| `bx-h/hbx-happy-blog` | 0 | 今日博客报告更新由本 Daily Report job 自己处理，不属于业务 PR watcher 事件。 |
+
+### 今日讨论主题
+
+| 主题 | 结论 | 下一步 |
+|---|---|---|
+| PR 自动审核 | 今日无新增结构化事件；watcher 正常安静运行。 | 继续由 `d8adacdd099a` 生产 per-PR 事件，本日报只负责消费和总结。 |
+| Obsidian 备份 | 今日 09:00 确认无本地变更、无新 commit/PR。 | 保持每日备份；有新内容时继续 branch-first / PR 流程。 |
+| Hermes config backup | 上次失败仍未解除，命中内容看起来更像示例 / 描述文本触发的保守阻断。 | 单独检查并修复：优先改写示例或调整精细 allowlist，不在日报任务里临时放行。 |
+| Cron 时间口径 | live cron 显示日报 job 是 14:00 +08，而不是 22:00 +08。 | 如果目标确实是 22:00，需要单独执行 `hermes cron edit` 并用 `next_run_at` 验证。 |
+| Activity ledger | 今日没有 ledger 文件，说明实时 sidecar 仍未成为稳定日报源。 | 继续跟踪上游 activity-ledger PR；落地前继续用 session coverage audit 兜底。 |
+| 博客发布 | 今日报告 public-safe，变更范围应限定在 `content/posts/hermes-report.md`。 | 通过博客 PR 发布并在合并后验证线上页面。 |
+
+### 已基本 close
+
+- 今日 PR auto-review 事件核对：北京时间当日范围内为 0。
+- 今日 Obsidian 备份核对：运行成功，工作区干净，无新内容需要提交。
+- 今日 watcher 状态核对：最近多次 cron session 均为安静运行，无需人工介入。
+- 今日公开内容安全判断：报告只写系统状态、抽象工作流和公开路径，不包含 secret、token、cookie、私钥、密码、原始私密对话或内部文档内容。
+
+### 仍需人工判断
+
+- 是否把 Daily Report job 从当前 live 的 `14:00 +08` 调整到真正的北京时间 22:00。我的建议是修正，否则“每天 22:00 收束”的行为和真实调度会长期错位。
+- 是否单独修复 `hermes-config-backup-every-3-days` 的 secret scan 阻断。我的建议是修，但不要粗暴放宽扫描；备份链路的安全边界比一次成功 commit 更重要。
+- Activity ledger 上游能力何时合入 / 部署。没有 ledger 时日报仍可做，但 coverage 依赖 session search，天然不如实时 sidecar 稳定。
+
+### 对今天报告质量的修正 / 备注
+
+- 本次 coverage audit 覆盖了 live `hermes cron list`、PR events/state/repos、最近 sessions、三组 targeted `session_search`、今日 session 文件列表，以及 Obsidian backup / PR watcher cron transcript。
+- 今日没有发现被 PR events 掩盖的重要 user-facing 工作；主要会话都是 watcher cron、备份 cron 和本 Daily Report job 本身。
+- Candidate-topic ledger 的结论是：PR watcher、Obsidian backup、config backup、cron 时间口径、activity-ledger 缺失、博客发布纳入报告；大量 watcher `[SILENT]` session 作为低信号重复项排除。
 
 ---
 
