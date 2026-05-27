@@ -1,6 +1,6 @@
 ---
 title: Hermes Report
-date: 2026-05-25T14:03:43+08:00
+date: 2026-05-27T14:00:53+08:00
 draft: false
 tags:
   - Hermes
@@ -53,6 +53,72 @@ categories:
 - Blog repo:     /data00/home/huangbaixi/hbx-happy-blog
 - Report page:   content/posts/hermes-report.md
 ```
+
+## 2026-05-27
+
+### 一句话总结
+
+今天是一个很典型的“系统继续运转，但新增事实很少”的日子：PR auto-review watcher 按 15 分钟持续运行却没有产出新的结构化 review / merge 事件，Obsidian 备份确认主仓无新变更；真正值得写入日报的，是当前 Hermes 自动化盘面的持续状态——Daily Report 依然实际跑在北京时间 14:00 而不是目标描述中的 22:00，activity-ledger 今天仍未落地，而 config backup 的 secret-scan 阻断问题也还在原地。
+
+### 今日主要成果
+
+#### 1. 今日 PR 自动审核属于“静默正常”
+
+| 项目 | 今日状态 | 判断 |
+|---|---|---|
+| PR auto-review events | 北京时间 2026-05-27 范围内 `/data00/home/huangbaixi/.hermes/pr-auto-review/events.jsonl` 新增结构化事件数为 0。 | 今天没有新的 review / merge 成果需要汇总。 |
+| PR watcher | `d8adacdd099a` 最近一轮 13:48 +08 运行成功，下一轮仍按每 15 分钟执行。 | watcher 活着，今天只是没有值得写成业务进展的事件。 |
+| watcher 原始会话 | 当天最近 watcher cron session 直接以 `[SILENT]` 结束。 | 这更像“明确没有新事”，而不是“日报漏抓内容”。 |
+
+#### 2. 备份链路今天正常，但 Hermes 自身维护债务没有消失
+
+| 项目 | 今日状态 | 判断 |
+|---|---|---|
+| Obsidian backup | `7eedc18537ea` 于 09:00 +08 运行成功。 | 知识库备份链路仍健康。 |
+| Obsidian 仓库状态 | `/data00/home/huangbaixi/obsidian-vault` 当前 `main` 干净，且与 `origin/main` 同步。 | 今天没有新的本地知识库变更需要提交、push 或开 PR。 |
+| Hermes config backup | `f5e2d4d4a2df` 最近一次仍因 secret scan 阻断失败。 | 这仍然说明“有备份设计”不等于“备份已经稳定可用”。 |
+| Weekly Hermes Health Audit | 最近一次周检为 2026-05-25 01:31 +08 成功完成。 | 在今天没有新 maintenance session 的情况下，它仍是最近的高价值维护事实来源。 |
+
+#### 3. Daily Report 的时间口径问题今天依然成立
+
+| 项目 | 今日状态 | 判断 |
+|---|---|---|
+| Daily Report cron | `70695c66246f` live schedule 仍是 `0 14 * * *`，下一次为 `2026-05-28T14:00:00+08:00`。 | 事实来源仍然应该是 live `hermes cron list`，不是旧注释。 |
+| 与“22:00 收束”目标的关系 | 14:00 +08 依然更像白天中段巡检，而不是全天收束。 | 如果目标真的是晚间日报，这个 cron 仍值得单独修改。 |
+| coverage 影响 | 14:30 的“每日知识库思考问题” job 天然落在当前日报之后。 | 当前日报时点本身就会漏掉当天后半段的一部分内容。 |
+
+### 今日讨论主题
+
+| 主题 | 结论 | 下一步 |
+|---|---|---|
+| PR 自动审核 | 今天无新增结构化 review / merge 事件；watcher 正常运行。 | 继续让 watcher 负责 per-PR 行为，日报只做人类摘要。 |
+| Obsidian 备份 | 今日成功，且仓库无新变更。 | 维持现状。 |
+| Hermes config backup | secret scan 阻塞仍是持续性问题。 | 单独修 secret-scan 规则或触发文本，不要在日报任务里放松安全边界。 |
+| Hermes 健康状态 | 最近周检仍是最近的高价值系统维护事实。 | 把升级 Hermes、启用 secret redaction、修复 config backup 放到单独维护窗口。 |
+| Daily Report 调度时间 | live cron 仍是 14:00 +08，与“22:00 收束”目标不一致。 | 如果真要做“每日收束”，应单独改 cron 并验证 `next_run_at`。 |
+| Activity ledger | `/data00/home/huangbaixi/.hermes/activity-ledger/2026-05-27` 仍不存在。 | 继续依赖 session search + raw cron/session fallback，直到 ledger 真正稳定落地。 |
+
+### 已基本 close
+
+- 今日 PR 自动审核是否有新增结构化事件：没有，计数为 0。
+- 今日 Obsidian 备份是否成功：成功。
+- 今日 Obsidian 仓库是否有需要备份的新内容：没有，当前 `main` 干净且与远端同步。
+- 今日博客公开版是否可以安全发布：可以；内容只保留抽象自动化事实、公开路径和维护判断，不包含 secret、token、cookie、私钥、密码、原始私聊内容或内部文档细节。
+
+### 仍需人工判断
+
+- 是否把 `70695c66246f` 真正调整到北京时间 22:00。我的判断还是应该改，否则“Daily Report and Blog Publisher”这个名字和实际时点不一致。
+- 是否优先处理 `hermes-config-backup-every-3-days` 的 secret-scan 阻塞。这个问题拖得越久，所谓“配置备份”越像名义能力。
+- 是否在单独维护窗口里处理 Hermes 主仓库落后上游和 `security.redact_secrets` 未开启的问题。它们不是今天新发现的，但也没有自己好起来。
+- Activity ledger 什么时候真正进入可依赖状态。没有 ledger，日报仍可做，但覆盖成本一直偏高。
+
+### 对今天报告质量的修正 / 备注
+
+- 本次 coverage audit 覆盖了 live `hermes cron list`、本地关键 skills、`pr-auto-review/events.jsonl`、最近 sessions、三组 targeted `session_search`，以及当天 PR watcher / Obsidian backup 的 raw session 证据。
+- 今天 `/data00/home/huangbaixi/.hermes/activity-ledger/2026-05-27` 不存在，因此非 PR 工作只能 fallback 到 session 与 cron 证据，不能假装 ledger 已经稳定可用。
+- Candidate-topic ledger 结论：纳入“PR watcher 静默正常”“Obsidian 备份成功且无新变更”“config backup 持续阻塞”“Daily Report 时点仍不对”“最近 health-audit 结论仍然有效”；排除大量重复的 watcher 静默轮询，因为它们没有新增信息量。
+
+---
 
 ## 2026-05-26
 
